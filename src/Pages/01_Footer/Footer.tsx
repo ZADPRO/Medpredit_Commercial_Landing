@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"; // Import Link for internal routing
 import logo from "../../assets/images/logo.svg";
 import {
   FaLinkedin,
@@ -9,12 +10,18 @@ import {
 import {
   FaMapMarkerAlt,
   FaEnvelope,
-  // FaPhoneAlt,
   FaClock,
 } from "react-icons/fa"; // React Icons for Contact
-// import { GrLinkNext } from "react-icons/gr";
-// import { Link } from "react-router-dom";
+
 export default function Footer() {
+  // Function to handle smooth scrolling
+  const scrollToSection = (id: any) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <footer className="bg-[#0F3B36] text-[#FFA377] py-10 px-6 md:px-20">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -71,25 +78,25 @@ export default function Footer() {
           <h3 className="text-xl font-semibold">Quick Links</h3>
           <ul className="text-white mt-8 space-y-2">
             <li>
-              <a href="#home">Home</a>
+              <Link to="/home#home" onClick={() => scrollToSection("home")}>Home</Link>
             </li>
             <li>
-              <a href="#about">About Us</a>
+              <Link to="/home#about" onClick={() => scrollToSection("about")}>About Us</Link>
             </li>
             <li>
-              <a href="#services">Services</a>
+              <Link to="/home#services" onClick={() => scrollToSection("services")}>Services</Link>
             </li>
             <li>
-              <a href="#pages">Pages</a>
+              <Link to="/home#pages" onClick={() => scrollToSection("pages")}>Pages</Link>
             </li>
             <li>
-              <a href="#contact">Contact Us</a>
+              <Link to="/home#contact" onClick={() => scrollToSection("contact")}>Contact Us</Link>
             </li>
             <li>
-              <a href="#terms">Terms & Conditions</a>
+              <Link to="/terms" onClick={() => scrollToSection("terms")}>Terms & Conditions</Link>
             </li>
             <li>
-              <a href="#privacy">Privacy Policy</a>
+              <Link to="/privacy-policy" onClick={() => scrollToSection("privacy")}>Privacy Policy</Link>
             </li>
           </ul>
         </div>
@@ -101,7 +108,7 @@ export default function Footer() {
             <li className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-[#FFA377] text-5xl" /> 38/37B,
               Logi Chetty Street Number 1, Logi Street, Gugai, Salem, Tamil Nadu
-              636006 Kuta
+              636006
             </li>
             <li className="flex items-center gap-2">
               <FaEnvelope className="text-[#FFA377]" /> info@zadroit.com

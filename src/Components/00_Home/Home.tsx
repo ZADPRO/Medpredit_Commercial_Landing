@@ -222,7 +222,7 @@ const Home: React.FC = () => {
       icon: keep,
       title: "Keep track of sugar BP ",
       description:
-      "Track your sugar & BP with secure cloud storage. Access anytime, generate reports, and share with doctors & family. Stay informed, stay healthy!",
+        "Track your sugar & BP with secure cloud storage. Access anytime, generate reports, and share with doctors & family. Stay informed, stay healthy!",
     },
   ];
 
@@ -242,7 +242,7 @@ const Home: React.FC = () => {
             className="w-full lg:w-1/2 text-center lg:text-left"
           >
             <p className="text-sm text-white tracking-widest uppercase">
-            Your Personal Health Tracker 
+              Your Personal Health Tracker
             </p>
             <h1 className="text-3xl md:text-4xl font-bold text-[#f89c7c] mt-2">
               Seamless, secure, and smart your health companion anytime!
@@ -311,7 +311,7 @@ const Home: React.FC = () => {
               Contact Us
             </h3>
             <button className="flex flex-row justify-center mt-5 md:mt-10 items-center bg-black p-3 text-sm">
-            Get in Touch <FaHandHoldingMedical  className="ml-2 text-xl w-10" />
+              Get in Touch <FaHandHoldingMedical className="ml-2 text-xl w-10" />
             </button>
           </motion.div>
 
@@ -475,10 +475,10 @@ const Home: React.FC = () => {
               className="text-center mt-10"
             >
               <h3 className="text-[#D8927A] uppercase tracking-widest">
-              Our Services
+                Our Services
               </h3>
               <h2 className="text-4xl font-bold text-[#07332F]">
-              Simplify health tracking for your entire family with MedPredit!
+                Simplify health tracking for your entire family with MedPredit!
               </h2>
             </motion.div>
 
@@ -501,7 +501,7 @@ const Home: React.FC = () => {
 
                   <div className="relative p-6 flex flex-col items-center transition-all duration-300 z-10">
                     <img
-                      style={{ width: "20%", height: "50%"}}
+                      style={{ width: "20%", height: "50%" }}
                       src={service.icon}
                       alt="no Image"
                     />
@@ -749,7 +749,7 @@ const Home: React.FC = () => {
             Testimonial
           </p>
           <h2 className="text-4xl font-bold text-white mt-2">
-          What Users Say  
+            What Users Say
           </h2>
 
           <div
@@ -794,7 +794,7 @@ const Home: React.FC = () => {
       <section id="pages" className="bg-[#fef6f2] mt-40 py-10 px-6">
         <div className="max-w-6xl mx-auto">
           <h3 className="text-[#f7a582] text-lg font-extralight uppercase">
-             Blogs
+            Blogs
           </h3>
           <h2 className="text-3xl font-bold text-[#07332f] mt-2">
             Latest News & Articles.
@@ -911,7 +911,7 @@ const Home: React.FC = () => {
         </motion.div>
       </section>
 
-      <section id="terms">
+      {/* <section id="terms">
         <div className="bg-[#fff7f3] text-[#0F3B36] min-h-screen py-12 px-6 md:px-12">
           <div id="home" className="max-w-4xl mx-auto p-6 md:p-12">
             <h1 className="text-3xl font-semibold text-[#0F3B36] mb-6 text-center">
@@ -1020,9 +1020,9 @@ const Home: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section id="privacy">
+      {/* <section id="privacy">
         <div className="bg-[#fff7f3] text-[#0F3B36] min-h-screen py-12 px-6 md:px-12">
           <div id="home" className="max-w-4xl mx-auto p-6 md:p-12">
             <h1 className="text-3xl font-bold text-[#0F3B36] mb-6">
@@ -1110,7 +1110,7 @@ const Home: React.FC = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

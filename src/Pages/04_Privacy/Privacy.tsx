@@ -1,8 +1,8 @@
 import React from "react";
 
-const Terms: React.FC = () => {
+const Privacy: React.FC = () => {
   return (
-    <div className="bg-[#fff7f3] text-[#0F3B36] min-h-screen py-12 px-6 md:px-12">
+    <div id="privacy" className="bg-[#fff7f3] text-[#0F3B36] min-h-screen py-12 px-6 md:px-12">
       <div id="home" className="max-w-4xl mx-auto p-6 md:p-12">
         <h1 className="text-3xl font-bold text-[#0F3B36] mb-6">Medpredit Privacy Policy</h1>
 
@@ -11,7 +11,7 @@ const Terms: React.FC = () => {
         </p>
 
         <h2 className="text-2xl font-semibold text-[#0F3B36] mt-6">1. Information We Collect</h2>
-        
+
         <h3 className="text-xl font-semibold text-[#0F3B36] mt-4">A. Personal Information:</h3>
         <p className="text-lg leading-relaxed">Account Information: When you register for the App, we collect your name, email address, phone number, and other contact details.</p>
 
@@ -40,4 +40,4 @@ const Terms: React.FC = () => {
   );
 };
 
-export default Terms;
+export default Privacy;
