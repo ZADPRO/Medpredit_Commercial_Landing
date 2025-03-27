@@ -93,10 +93,10 @@ export default function Footer() {
               <Link to="/home#contact" onClick={() => scrollToSection("contact")}>Contact Us</Link>
             </li>
             <li>
-              <Link to="/terms" onClick={() => scrollToSection("terms")}>Terms & Conditions</Link>
+              <Link to="/terms#terms" onClick={() => scrollToSection("terms")}>Terms & Conditions</Link>
             </li>
             <li>
-              <Link to="/privacy-policy" onClick={() => scrollToSection("privacy")}>Privacy Policy</Link>
+              <Link to="/privacy-policy#privacy" onClick={() => scrollToSection("privacy")}>Privacy Policy</Link>
             </li>
           </ul>
         </div>

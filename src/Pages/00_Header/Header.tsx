@@ -132,10 +132,36 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
-              <button className="flex items-center space-x-2 border-2 border-[#F7A582] text-[#F7A582] px-4 py-2 rounded-full w-auto max-w-[200px] transition hover:bg-[#F7A582] hover:text-white">
+              {
+                tokenObject.firstName ? (
+                  <>
+                    {/* <div className="hidden md:flex justify-end"> */}
+                    <button onClick={() => { navigate("/dashboard"); setActive("dahboard"); setIsToggleOpen(false) }} className="flex items-center space-x-2 border-2 border-[#F7A582] text-[#F7A582] px-3 md:px-5 lg:px-6 py-2 rounded-full w-auto max-w-[200px] transition hover:bg-[#F7A582] hover:text-white cursor-pointer">
+                      <span className="leading-tight text-xs md:text-sm lg:text-base">
+                        {tokenObject.firstName} {tokenObject.lastName}
+                      </span>
+                      <FaUser />
+                    </button>
+                    <button onClick={() => { localStorage.clear(); navigate("/home#home"); setActive("home");  setIsToggleOpen(false) }} className="ml-0 lg:ml-5 flex items-center space-x-2 border-2 border-[#F7A582] text-[#F7A582] px-3 md:px-5 lg:px-6 py-2 rounded-full w-auto max-w-[200px] transition hover:bg-[#F7A582] hover:text-white cursor-pointer">
+                      <span className="leading-tight text-xs md:text-sm lg:text-base">
+                        Logout
+                      </span>
+                    </button>
+                    {/* </div> */}
+                  </>
+                ) : (
+                  <button onClick={() => { navigate("/login"); setActive("login");  setIsToggleOpen(false) }} className="flex items-center space-x-2 border-2 border-[#F7A582] text-[#F7A582] px-3 md:px-5 lg:px-6 py-2 rounded-full w-auto max-w-[200px] transition hover:bg-[#F7A582] hover:text-white cursor-pointer">
+                    <span className="leading-tight text-xs md:text-sm lg:text-base">
+                      Login
+                    </span>
+                    <FaUser />
+                  </button>
+                )
+              }
+              {/* <button className="flex items-center space-x-2 border-2 border-[#F7A582] text-[#F7A582] px-4 py-2 rounded-full w-auto max-w-[200px] transition hover:bg-[#F7A582] hover:text-white">
                 <span>Login</span>
                 <FaUser />
-              </button>
+              </button> */}
             </div>
           )
         }
