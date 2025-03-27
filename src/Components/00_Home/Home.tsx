@@ -41,6 +41,7 @@ import { GrPrevious } from "react-icons/gr";
 import { GrNext } from "react-icons/gr";
 
 const Home: React.FC = () => {
+  console.log("hek");
   const testimonials = [
     {
       name: "Nirmal",
