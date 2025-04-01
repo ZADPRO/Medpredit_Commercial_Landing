@@ -568,7 +568,7 @@ const Home: React.FC = () => {
             className="w-full md:w-auto flex justify-center md:justify-end"
           >
             <button className="border border-[#F4A38A] text-[#F4A38A] px-6 py-3 rounded-full text-lg font-semibold flex items-center gap-2 hover:bg-[#F4A38A] hover:text-white transition-all duration-300">
-              Make Appointment <FaCalendarCheck />
+              Make Appointment <FaCalendarCheck /> Coming Soon..!
             </button>
           </motion.div>
         </div>
