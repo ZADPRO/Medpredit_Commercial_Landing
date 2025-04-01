@@ -195,12 +195,12 @@ const Home: React.FC = () => {
       description:
         "Assessing fitness, stress, habits, diet, BMI, and sleep for overall well-being.",
     },
-    {
-      icon: test,
-      title: "Specialized Medical Consultations",
-      description:
-        "Expert guidance from specialists for personalized diagnosis and treatment",
-    },
+    // {
+    //   icon: test,
+    //   title: "Specialized Medical Consultations",
+    //   description:
+    //     "Expert guidance from specialists for personalized diagnosis and treatment",
+    // },
     {
       icon: icon3,
       title: "Preventive & Wellness Programs",
