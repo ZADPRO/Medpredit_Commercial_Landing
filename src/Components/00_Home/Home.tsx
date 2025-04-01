@@ -14,7 +14,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import icon1 from "../../assets/images/icon1.svg";
 
 import icon3 from "../../assets/images/icon3.svg";
-import selfs from "../../assets/images/selfs.svg";gi
+import selfs from "../../assets/images/selfs.svg";
 import history from "../../assets/images/history.svg";
 import keep from "../../assets/images/Keep.svg";
 import suitcase from "../../assets/images/case.svg";
