@@ -12,6 +12,7 @@ import {
   FaEnvelope,
   FaClock,
 } from "react-icons/fa"; // React Icons for Contact
+import { IoCall } from "react-icons/io5";
 
 export default function Footer() {
   // Function to handle smooth scrolling
@@ -93,11 +94,12 @@ export default function Footer() {
               <Link to="/home#contact" onClick={() => scrollToSection("contact")}>Contact Us</Link>
             </li>
             <li>
-              <Link to="/terms#terms" onClick={() => scrollToSection("terms")}>Terms & Conditions</Link>
+              <Link to="/terms#terms" onClick={() => scrollToSection("terms")}>Terms and Condition &  Refund Policy</Link>
             </li>
             <li>
               <Link to="/privacy-policy#privacy" onClick={() => scrollToSection("privacy")}>Privacy Policy</Link>
             </li>
+           
           </ul>
         </div>
 
@@ -113,10 +115,14 @@ export default function Footer() {
             <li className="flex items-center gap-2">
               <FaEnvelope className="text-[#FFA377]" /> info@zadroit.com
             </li>
+          
 
             <li className="flex items-center gap-2">
               <FaClock className="text-[#FFA377]" /> 8 AM - 5 PM, Monday -
               Friday
+            </li>
+            <li className="flex items-center gap-2">
+              <IoCall  className="text-[#FFA377] text-xl" /> 0427-356-2462
             </li>
           </ul>
         </div>
