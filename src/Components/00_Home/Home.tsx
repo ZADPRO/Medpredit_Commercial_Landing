@@ -106,23 +106,23 @@ const Home: React.FC = () => {
 
   const articles = [
     {
-      title: "Best Medical Network Directory For Physicians & Clients",
+      title: " Why Early Detection Saves Lives: The Role of Predictive Tools in Modern Medicine",
       description:
-        "Tips for Maintaining a Healthy Heart Hypertension, commonly known as high blood",
+        "Learn why predictive health tools are crucial for early diagnosis, disease prevention, and better patient outcomes—with real-world examples from MedPredit’s technology.",
       image: grp1,
       link: "#",
     },
     {
-      title: "The Importance of Regular Health Checkups",
+      title: "Managing Stress, Preventing Diabetes: Tips Backed by Predictive Healthcare",
       description:
-        "Tips for Maintaining a Healthy Heart Hypertension, commonly known as high blood",
+        "Practical lifestyle tips to reduce stress and lower your diabetes risk—enhanced by insights from MedPredit’s predictive models.",
       image: grp2,
       link: "#",
     },
     {
-      title: "Managing Better Stress for Better Mental Health",
+      title: "Can AI Predict Stress-Induced Diabetes? Here's How MedPredit is Making It Possible",
       description:
-        "Tips for Maintaining a Healthy Heart Hypertension, commonly known as high blood",
+        "Explore how MedPredit uses AI to analyze stress markers and lifestyle data to flag early warning signs of diabetes before symptoms appear.",
       image: grp3,
       link: "#",
     },
@@ -205,7 +205,7 @@ const Home: React.FC = () => {
       icon: icon3,
       title: "Preventive & Wellness Programs",
       description:
-        "Proactive health solutions to prevent illnesses and promote long-term well-being.",
+        "Stay ahead of illness with our Preventive & Wellness Programs—proactive care for lasting well-being.",
     },
     {
       icon: selfs,
@@ -311,7 +311,7 @@ const Home: React.FC = () => {
               Don't <span className="font-extrabold text-xl">Hesitate</span> To
               Contact Us
             </h3>
-            <button className="flex flex-row justify-center mt-5 md:mt-10 items-center bg-black p-3 text-sm">
+            <button className="flex flex-row justify-center mt-5 md:mt-10 items-center bg-black p-3 text-[160%]">
               Get in Touch <FaHandHoldingMedical className="ml-2 text-xl w-10" />
             </button>
           </motion.div>
@@ -424,8 +424,8 @@ const Home: React.FC = () => {
             viewport={{ amount: 0.2 }}
             className="lg:w-1/2 md:w-full px-10"
           >
-            <h5 className="text-sm text-[#f89c7c] tracking-widest uppercase">
-              About Medicalife
+            <h5 className="text-xl md:text-2xl font-bold text-[#f89c7c]  tracking-widest uppercase">
+              About MedPredit
             </h5>
             <h2 className="text-4xl font-bold text-[#07332f] mt-2">
               Your Trusted Healthcare Partner
@@ -475,7 +475,7 @@ const Home: React.FC = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-center mt-10"
             >
-              <h3 className="text-[#D8927A] uppercase tracking-widest">
+              <h3 className="text-xl md:text-2xl font-bold text-[#f89c7c] uppercase tracking-widest">
                 Our Services
               </h3>
               <h2 className="text-4xl font-bold text-[#07332F]">
@@ -586,7 +586,7 @@ const Home: React.FC = () => {
           >
             {/* Left Content */}
             <div className="w-full md:w-1/2 lg:w-[40%]">
-              <p className="text-[#F4A38A] uppercase tracking-wide font-semibold">
+              <p className="text-[#F4A38A] text-xl md:text-2xl font-bold uppercase tracking-wide font-semibold">
                 How We Work
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#002E2C] mt-2 leading-tight">
@@ -693,7 +693,7 @@ const Home: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full md:w-[50%] lg:w-[55%]"
           >
-            <p className="text-[#F4A38A] text-xl md:text-2xl uppercase tracking-wide font-light">
+            <p className="text-[#F4A38A] text-xl md:text-2xl font-bold uppercase tracking-wide ">
               FAQs
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#002E2C] mt-2 leading-tight">
@@ -746,7 +746,7 @@ const Home: React.FC = () => {
 
       <section className="bg-[#023E36] py-16 px-10">
         <div className="max-w-6xl mx-auto p-10">
-          <p className="text-[#F4A38A] uppercase tracking-wide font-semibold">
+          <p className="text-[#F4A38A] text-xl md:text-2xl font-bold uppercase tracking-wide ">
             Testimonial
           </p>
           <h2 className="text-4xl font-bold text-white mt-2">
@@ -794,8 +794,8 @@ const Home: React.FC = () => {
 
       <section id="pages" className="bg-[#fef6f2] mt-40 py-10 px-6">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-[#f7a582] text-lg font-extralight uppercase">
-            Blogs
+          <h3 className="text-[#f7a582] text-xl md:text-2xl font-bold uppercase">
+           upcoming Blogs
           </h3>
           <h2 className="text-3xl font-bold text-[#07332f] mt-2">
             Latest News & Articles.
@@ -823,12 +823,12 @@ const Home: React.FC = () => {
                 <p className="text-[#07332f] text-sm mt-5">
                   {article.description}
                 </p>
-                <a
+                {/* <a
                   href={article.link}
                   className="text-[#f7a582] font-extralight mt-2 inline-block"
                 >
                   Read More →
-                </a>
+                </a> */}
               </motion.div>
             ))}
           </div>
@@ -845,9 +845,7 @@ const Home: React.FC = () => {
           backgroundPosition: "center",
         }}
       >
-        <h3 className="text-lg font-medium text-center text-white uppercase tracking-wide">
-          Fill the Form
-        </h3>
+       
         <h2 className="text-3xl font-bold text-white text-center mb-6">
           Contact Form
         </h2>

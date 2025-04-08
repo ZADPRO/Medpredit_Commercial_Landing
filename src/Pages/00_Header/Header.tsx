@@ -13,7 +13,7 @@ export default function Header() {
     { name: "Home", id: "/home#home" },
     { name: "About Us", id: "/home#about" },
     { name: "Services", id: "/home#services" },
-    { name: "Pages", id: "/home#pages" },
+    { name: "Blogs", id: "/home#pages" },
     { name: "Contact Us", id: "/home#contact" },
     // { name: "Terms & Condition", id: "/terms#terms" },
     // { name: "Privacy Policy", id: "/privacy-policy#privacy" },
