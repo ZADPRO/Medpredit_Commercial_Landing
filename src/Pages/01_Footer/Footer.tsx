@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"; // Import Link for internal routing
 import logo from "../../assets/images/logo.svg";
-import {
-  FaLinkedin,
-  FaYoutube,
-  FaTwitter,
-  FaInstagram,
-  FaFacebook,
-} from "react-icons/fa";
+// import {
+//   FaLinkedin,
+//   FaYoutube,
+//   FaTwitter,
+//   FaInstagram,
+//   FaFacebook,
+// } from "react-icons/fa";
 import {
   FaMapMarkerAlt,
   FaEnvelope,
@@ -35,7 +35,7 @@ export default function Footer() {
             Our family-centered approach to healthcare ensures that each member
             of your family receives personalized attention.
           </p>
-          <div className="flex gap-4 mt-8 text-[#FFA377]">
+          {/* <div className="flex gap-4 mt-8 text-[#FFA377]">
             <a
               href="https://www.linkedin.com/company/zadroit-it-solution-private-limited/posts/?feedView=all"
               target="_blank"
@@ -71,7 +71,7 @@ export default function Footer() {
             >
               <FaFacebook size={20} />
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* Quick Links */}
@@ -118,7 +118,7 @@ export default function Footer() {
           
 
             <li className="flex items-center gap-2">
-              <FaClock className="text-[#FFA377]" /> 8 AM - 5 PM, Monday -
+              <FaClock className="text-[#FFA377]" /> 9.30 AM - 6.30 PM, Monday -
               Friday
             </li>
             <li className="flex items-center gap-2">
