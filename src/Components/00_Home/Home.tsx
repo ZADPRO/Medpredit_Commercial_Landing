@@ -705,25 +705,25 @@ const Home: React.FC = () => {
               className="absolute top-[80%] md:top-[90%] lg:top-[85%] right-0 flex gap-1"
             >
               <div className="bg-[#023E36] text-white p-6 md:p-8 lg:p-10 w-36 h-28 md:w-40 md:h-30 text-center">
-                <p className="text-3xl font-bold">
+                {/* <p className="text-3xl font-bold">
                   {isVisible ? (
                     <CountUp start={0} end={100} duration={1} />
                   ) : (
                     "0"
                   )}
                   +
-                </p>
+                </p> */}
                 <p className="text-sm">Doctors</p>
               </div>
               <div className="bg-[#F4A38A] text-white p-6 md:p-8 lg:p-10 w-36 h-28 md:w-40 md:h-30 text-center">
-                <p className="text-3xl font-bold">
+                {/* <p className="text-3xl font-bold">
                   {isVisible ? (
                     <CountUp start={0} end={16} duration={1} />
                   ) : (
                     "0"
                   )}
                   +
-                </p>
+                </p> */}
                 <p className="text-sm">World Office</p>
               </div>
             </motion.div>
