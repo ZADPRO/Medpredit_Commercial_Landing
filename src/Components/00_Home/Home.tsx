@@ -33,7 +33,7 @@ import grp2 from "../../assets/images/grp2.png";
 import grp3 from "../../assets/images/grp3.png";
 import formimg from "../../assets/images/form.png";
 import { motion } from "framer-motion";
-import CountUp from "react-countup";
+// import CountUp from "react-countup";
 import "./Home.css";
 import { useSwipeable } from "react-swipeable";
 import { GrPrevious } from "react-icons/gr";
@@ -84,6 +84,30 @@ const Home: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(1);
   // const navigate = useNavigate();
+
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [description, setDescription] = useState('');
+  
+  const handleClick = () => {
+    const to = "info@zadroit.com";
+    const subject = encodeURIComponent(`Inquiry from ${phone}`); // You can customize this
+  
+    const body = encodeURIComponent(
+      `Dear Zadroit Team,\n\n` +
+      `I hope this message finds you well.\n\n` +
+      `${description}\n\n` +
+      `Best regards,\n` +
+      `${email}`
+    );
+  
+    const mailtoLink = `mailto:${to}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+  };
+  
+  
+
+
 
   useEffect(() => {
     const updateItemsPerView = () => {
@@ -928,6 +952,9 @@ const Home: React.FC = () => {
                     type="email"
                     placeholder="Email"
                     name="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+            
                     className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
                   />
                 </div>
@@ -935,6 +962,9 @@ const Home: React.FC = () => {
                   <input
                     type="text"
                     placeholder="Your Phone"
+                    value={phone}
+                    onChange={e => setPhone(e.target.value)}
+            
                     className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
                   />
                   <input
@@ -945,13 +975,17 @@ const Home: React.FC = () => {
                 <textarea
                   placeholder="Your Message"
                   name="message"
+                  value={description}
+                  onChange={e => setDescription(e.target.value)}
+          
                   rows={4}
                   className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
                 ></textarea>
 
                 <button
                   className="w-[25%] p-3 bg-transparent border-2 border-[#f7a582] text-[#f7a582] rounded-full font-semibold hover:bg-white hover:text-[#f7a582] transition duration-300"
-                  // onClick={handleSubmit}
+                  onClick={handleClick}
+
                 >
                   Send
                 </button>

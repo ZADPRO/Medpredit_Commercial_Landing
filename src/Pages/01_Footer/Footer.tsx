@@ -13,8 +13,20 @@ import {
   FaClock,
 } from "react-icons/fa"; // React Icons for Contact
 import { IoCall } from "react-icons/io5";
+import { useState } from "react";
 
 export default function Footer() {
+
+    const [email, setEmail] = useState('');
+  
+    
+    const handleClick = () => {
+      const to = "info@zadroit.com";
+     
+    
+      const mailtoLink = `mailto:${to}`;
+      window.location.href = mailtoLink;
+    };
   // Function to handle smooth scrolling
   const scrollToSection = (id: any) => {
     const element = document.getElementById(id);
@@ -140,9 +152,12 @@ export default function Footer() {
             <input
               type="email"
               placeholder="Enter Your Email"
+              required
+              value={email}
+              onChange={e=>setEmail(e.target.value)}
               className="w-full p-2 bg-transparent text-white focus:outline-none"
             />
-            <button className="bg-[#FFA377] px-4 py-2 text-black font-semibold">
+            <button className="bg-[#FFA377] px-4 py-2 text-black font-semibold" onClick={handleClick}>
               Send
             </button>
           </div>
