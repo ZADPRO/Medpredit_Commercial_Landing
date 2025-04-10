@@ -85,20 +85,24 @@ const Home: React.FC = () => {
   const [itemsPerView, setItemsPerView] = useState(1);
   // const navigate = useNavigate();
 
+  const[name,setName]=useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [description, setDescription] = useState('');
   
   const handleClick = () => {
-    const to = "info@zadroit.com";
-    const subject = encodeURIComponent(`Inquiry from ${phone}`); // You can customize this
+    const to = "soniyateddy9791@gmail.com";
+    const subject = encodeURIComponent(`Inquiry from ${name}`); // You can customize this
   
     const body = encodeURIComponent(
       `Dear Zadroit Team,\n\n` +
       `I hope this message finds you well.\n\n` +
       `${description}\n\n` +
+     `Email : ${email}\n`+
+     `Mobile Number : ${phone}\n\n`+
       `Best regards,\n` +
-      `${email}`
+      `${name}\n`+
+       `${phone}`
     );
   
     const mailtoLink = `mailto:${to}?subject=${subject}&body=${body}`;
@@ -946,8 +950,22 @@ const Home: React.FC = () => {
                     type="text"
                     placeholder="Name"
                     name="name"
+                    value={name}
+                    onChange={e=>setName(e.target.value)}
                     className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
                   />
+                   <input
+                    type="text"
+                    placeholder="Your Phone"
+                    value={phone}
+                    onChange={e => setPhone(e.target.value)}
+            
+                    className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
+                  />
+                  
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-[100%] md:w-[204%] lg:w-[204%]">
+                 
                   <input
                     type="email"
                     placeholder="Email"
@@ -957,20 +975,10 @@ const Home: React.FC = () => {
             
                     className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
                   />
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    placeholder="Your Phone"
-                    value={phone}
-                    onChange={e => setPhone(e.target.value)}
-            
-                    className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
-                  />
-                  <input
+                  {/* <input
                     type="date"
                     className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
-                  />
+                  /> */}
                 </div>
                 <textarea
                   placeholder="Your Message"

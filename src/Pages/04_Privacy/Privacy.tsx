@@ -31,7 +31,12 @@ const Privacy: React.FC = () => {
         <p className="text-lg leading-relaxed">We retain your data only as long as necessary and employ security measures to protect your personal information.</p>
 
         <h2 className="text-2xl font-semibold text-[#0F3B36] mt-6">5. Your Rights and Choices</h2>
-        <p className="text-lg leading-relaxed">You have the right to access, update, delete, or opt out of data collection. Contact us at</p> <a className="text-blue-700">info@zadroit.com</a>
+        <p className="text-lg leading-relaxed">You have the right to access, update, delete, or opt out of data collection. Contact us at</p>  <a
+              href="mailto:info@zadroit.com"
+              className="text-blue-500 underline"
+            >
+              info@zadroit.com
+            </a>
 
         <h2 className="text-2xl font-semibold text-[#0F3B36] mt-6">6. Changes to This Policy</h2>
         <p className="text-lg leading-relaxed">We may update this Privacy Policy periodically. The latest version will always be available on our platform.</p>
