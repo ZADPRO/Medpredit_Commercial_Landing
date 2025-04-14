@@ -119,8 +119,11 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold">Contact Details</h3>
           <ul className="text-white mt-8 space-y-2">
+        
             <li className="flex items-center gap-2">
-              <FaMapMarkerAlt className="text-[#FFA377] text-5xl" /> 38/37B,
+              <FaMapMarkerAlt className="text-[#FFA377] text-5xl" /> 
+              ZAdroit IT Solutions Private Limited,
+              38/37B,
               Logi Chetty Street Number 1, Logi Street, Gugai, Salem, Tamil Nadu
               636006
             </li>
