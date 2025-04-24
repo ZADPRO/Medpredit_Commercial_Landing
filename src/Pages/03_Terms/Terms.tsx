@@ -27,80 +27,82 @@ const Terms: React.FC = () => {
             1. Introduction
           </h2>
           <p>
-            Medpredit provides healthcare-related services, including online
-            consultations, appointment scheduling, prescription management,
-            health tracking, and other services. By using the App, you agree to
-            comply with these Terms.
+         Our platform helps you manage your health and wellness with personalized tools and resources. By using our website and services, you agree to these Terms and Conditions. Please read them carefully to understand your rights and responsibilities.
+
           </p>
           <h2 className="text-2xl font-semibold text-[#0F3B36]">
             2. Acceptance of Terms
           </h2>
           <p>
-            By using Medpredit, you confirm that you accept and agree to these
-            Terms. If you do not agree, you should discontinue using the App
-            immediately.
+          By accessing or using the MedPredict platform, you confirm that you have read, understood, and agreed to be bound by these Terms and Conditions. If you do not agree with any part of these terms, please do not use our website or services.
+
           </p>
           <h2 className="text-2xl font-semibold text-[#0F3B36]">
             3. Services Provided
           </h2>
           <ul className="list-disc pl-5 space-y-2">
+          MedPredict is a digital health management platform that offers:
             <li>
-              Online Consultations: Connect with licensed healthcare providers.
+            Comprehensive Self Health Evaluation: Personalized tools to assess your overall health condition based on self-reported data.
+
+
             </li>
             <li>
-              Appointment Booking: Schedule appointments with healthcare
-              professionals.
+            Preventive & Wellness Programs: Customized wellness advice and lifestyle tracking to help you stay ahead of potential health issues.
+
             </li>
             <li>
-              Prescription Management: Manage and track your prescriptions.
+            Self-Education and Awareness: Informative content to help users understand health parameters, symptoms, and wellness routines.
+
             </li>
             <li>
-              Health Record Management: Securely store, access, and share your
-              medical records.
+            Evaluation History: A digital record of your past health assessments for easy access and comparison over time.
+
             </li>
             <li>
-              Health Content and Tools: Access informative articles and
-              monitoring tools.
+            Monitoring Tools for Sugar and Blood Pressure: Simple, user-friendly interfaces to record, track, and analyze blood sugar and blood pressure levels.
+
             </li>
+            These services are designed to promote self-care and early detection. They do not replace professional medical consultation or treatment.
+
           </ul>
           <h2 className="text-2xl font-semibold text-[#0F3B36]">
             4. User Eligibility
           </h2>
           <p>
-            To use Medpredit, you must be at least 18 years old or have parental
-            consent.
+          To use Medpredit, you must be at least 18 years old or have parental consent.
           </p>
           <h2 className="text-2xl font-semibold text-[#0F3B36]">
             5. Registration and Account
           </h2>
           <p>
-            You are responsible for maintaining the confidentiality of your
-            account credentials and ensuring the accuracy of your provided
-            information.
+          You are responsible for maintaining the confidentiality of your account credentials and ensuring the accuracy of your provided information.
+
           </p>
           <h2 className="text-2xl font-semibold text-[#0F3B36]">
             6. Use of the App
           </h2>
           <p>
-            Users must not disrupt the service, impersonate others, or upload
-            harmful content.
+          Users must not disrupt the service, impersonate others, or upload harmful content.
+
           </p>
           <h2 className="text-2xl font-semibold text-[#0F3B36]">
             7. Healthcare Services
           </h2>
           <p>
-            The services provided through Medpredit do not replace in-person
-            medical care. Always consult a physician for medical decisions.
+          The services provided through Medpredit do not replace in-person medical care. Always consult a physician for medical decisions.
+
           </p>
           <h2 className="text-2xl font-semibold text-[#0F3B36]">
             8. Privacy Policy
           </h2>
           <p>
-            Your data is protected according to our{" "}
+          We are committed to protecting your privacy. All personal data collected through our platform is handled in accordance with our  
+
             <a href="/privacy-policy" className="text-blue-500 underline">
               Privacy Policy
             </a>
-            .
+            .Your data is never sold and is only used to enhance your experience with our health tools and services.
           </p>
           <h2 className="text-2xl font-semibold text-[#0F3B36]">
             9. Contact Information
@@ -120,10 +122,7 @@ const Terms: React.FC = () => {
             10. Refunds & Cancellations
           </h2>
           <p>
-            All service purchases made through Medpredit are non-refundable,
-            non-exchangeable, and non-transferable. If a user decides to cancel
-            or discontinue their subscription, any unused sessions will
-            not be refunded.
+          All service purchases made through Medpredit are non-refundable, non-exchangeable, and non-transferable. If a user decides to cancel or discontinue their subscription, any unused sessions will not be refunded.
             <br />
           </p>
         </div>
