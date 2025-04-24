@@ -6,13 +6,12 @@ import { FaHandHoldingMedical } from "react-icons/fa";
 import dr3 from "../../assets/images/dr3.png";
 import dr4 from "../../assets/images/dr4.png";
 import dr5 from "../../assets/images/dr5.png";
-import { FaCirclePlay } from "react-icons/fa6";
-import { FaPlay } from "react-icons/fa";
+
 import img1 from "../../assets/images/img1.svg";
 import { FcApproval } from "react-icons/fc";
-import { FaArrowRight } from "react-icons/fa6";
+
 import icon1 from "../../assets/images/icon1.svg";
-import test from "../../assets/images/icon4.svg";
+
 import icon3 from "../../assets/images/icon3.svg";
 import selfs from "../../assets/images/selfs.svg";
 import history from "../../assets/images/history.svg";
@@ -20,7 +19,7 @@ import keep from "../../assets/images/Keep.svg";
 import suitcase from "../../assets/images/case.svg";
 import self from "../../assets/images/self.svg";
 import score from "../../assets/images/score.svg";
-import profile from "../../assets/images/profile.svg"
+import profile from "../../assets/images/profile.svg";
 import take from "../../assets/images/take.svg";
 import past from "../../assets/images/past.svg";
 import grpdr from "../../assets/images/grpdr.png";
@@ -34,13 +33,23 @@ import grp2 from "../../assets/images/grp2.png";
 import grp3 from "../../assets/images/grp3.png";
 import formimg from "../../assets/images/form.png";
 import { motion } from "framer-motion";
-import CountUp from "react-countup";
+// import CountUp from "react-countup";
 import "./Home.css";
 import { useSwipeable } from "react-swipeable";
 import { GrPrevious } from "react-icons/gr";
 import { GrNext } from "react-icons/gr";
 
+
+// type ContactFormData = {
+//   name: string;
+//   email: string;
+//   message: string;
+//   phone?: string;
+//   date?: string;
+// };
+
 const Home: React.FC = () => {
+  console.log("hek");
   const testimonials = [
     {
       name: "Nirmal",
@@ -74,6 +83,35 @@ const Home: React.FC = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(1);
+  // const navigate = useNavigate();
+
+  const[name,setName]=useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [description, setDescription] = useState('');
+  
+  const handleClick = () => {
+    const to = "soniyateddy9791@gmail.com";
+    const subject = encodeURIComponent(`Inquiry from ${name}`); // You can customize this
+  
+    const body = encodeURIComponent(
+      `Dear Zadroit Team,\n\n` +
+      `I hope this message finds you well.\n\n` +
+      `${description}\n\n` +
+     `Email : ${email}\n`+
+     `Mobile Number : ${phone}\n\n`+
+      `Best regards,\n` +
+      `${name}\n`+
+       `${phone}`
+    );
+  
+    const mailtoLink = `mailto:${to}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+  };
+  
+  
+
+
 
   useEffect(() => {
     const updateItemsPerView = () => {
@@ -105,23 +143,26 @@ const Home: React.FC = () => {
 
   const articles = [
     {
-      title: "Best Medical Network Directory For Physicians & Clients",
+      title:
+        " Why Early Detection Saves Lives: The Role of Predictive Tools in Modern Medicine",
       description:
-        "Tips for Maintaining a Healthy Heart Hypertension, commonly known as high blood",
+        "Learn why predictive health tools are crucial for early diagnosis, disease prevention, and better patient outcomes—with real-world examples from MedPredit’s technology.",
       image: grp1,
       link: "#",
     },
     {
-      title: "The Importance of Regular Health Checkups",
+      title:
+        "Managing Stress, Preventing Diabetes: Tips Backed by Predictive Healthcare",
       description:
-        "Tips for Maintaining a Healthy Heart Hypertension, commonly known as high blood",
+        "Practical lifestyle tips to reduce stress and lower your diabetes risk—enhanced by insights from MedPredit’s predictive models.",
       image: grp2,
       link: "#",
     },
     {
-      title: "Managing Better Stress for Better Mental Health",
+      title:
+        "Can AI Predict Stress-Induced Diabetes? Here's How MedPredit is Making It Possible",
       description:
-        "Tips for Maintaining a Healthy Heart Hypertension, commonly known as high blood",
+        "Explore how MedPredit uses AI to analyze stress markers and lifestyle data to flag early warning signs of diabetes before symptoms appear.",
       image: grp3,
       link: "#",
     },
@@ -194,17 +235,17 @@ const Home: React.FC = () => {
       description:
         "Assessing fitness, stress, habits, diet, BMI, and sleep for overall well-being.",
     },
-    {
-      icon: test,
-      title: "Specialized Medical Consultations",
-      description:
-        "Expert guidance from specialists for personalized diagnosis and treatment",
-    },
+    // {
+    //   icon: test,
+    //   title: "Specialized Medical Consultations",
+    //   description:
+    //     "Expert guidance from specialists for personalized diagnosis and treatment",
+    // },
     {
       icon: icon3,
       title: "Preventive & Wellness Programs",
       description:
-        "Proactive health solutions to prevent illnesses and promote long-term well-being.",
+        "Stay ahead of illness with our Preventive & Wellness Programs—proactive care for lasting well-being.",
     },
     {
       icon: selfs,
@@ -225,6 +266,23 @@ const Home: React.FC = () => {
         "Track your sugar & BP with secure cloud storage. Access anytime, generate reports, and share with doctors & family. Stay informed, stay healthy!",
     },
   ];
+
+  // const handleSubmit = () => {
+  //   console.log("Testing 244");
+
+
+  //   const mailtoLink = `mailto:info@movenpack.ch?subject=Contact Request from ${encodeURIComponent(
+  //     data.name
+  //   )}&body=Dear Movenpack Team,%0D%0A%0D%0A
+  // I would like to get in touch with you regarding the following:%0D%0A%0D%0A
+  // Name: ${encodeURIComponent(data.name)}%0D%0A
+  // Email: ${encodeURIComponent(data.email)}%0D%0A%0D%0A
+  // Message:%0D%0A${encodeURIComponent(data.message)}%0D%0A%0D%0A
+  // Please feel free to reach out to me at your earliest convenience.%0D%0A%0D%0A
+  // Best regards,%0D%0A${encodeURIComponent(data.name)}`;
+
+  //   window.location.href = mailtoLink;
+  // };
 
   return (
     <div className="bg-[#fff7f3]">
@@ -249,17 +307,24 @@ const Home: React.FC = () => {
             </h1>
             <p className="text-white mt-4">
               At MedPredit, we provide top-tier medical care with compassion and
-              excellence. Book your appointment today for trusted healthcare!
+              excellence.
             </p>
             {/* Buttons */}
             <div className="mt-6 flex justify-center lg:justify-start space-x-4">
-              <button className="bg-[#f89c7c] text-white px-6 py-2 rounded-md shadow-lg hover:bg-[#e37c5e] transition">
+              <button
+                className="bg-[#f89c7c] text-white px-6 py-2 rounded-md shadow-lg hover:bg-[#e37c5e] transition"
+                onClick={() => {
+                  document
+                    .getElementById("about")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
                 Read More
               </button>
-              <button className="flex items-center text-white">
+              {/* <button className="flex items-center text-white">
                 <FaPlay className="mr-2" />
                 Watch Video
-              </button>
+              </button> */}
             </div>
           </motion.div>
 
@@ -310,8 +375,16 @@ const Home: React.FC = () => {
               Don't <span className="font-extrabold text-xl">Hesitate</span> To
               Contact Us
             </h3>
-            <button className="flex flex-row justify-center mt-5 md:mt-10 items-center bg-black p-3 text-sm">
-              Get in Touch <FaHandHoldingMedical className="ml-2 text-xl w-10" />
+            <button
+              className="flex flex-row cursor-pointer justify-center mt-5 md:mt-10 items-center bg-black p-3 text-[160%]"
+              onClick={() => {
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Get in Touch
+              <FaHandHoldingMedical className="ml-2 text-xl w-10" />
             </button>
           </motion.div>
 
@@ -403,12 +476,12 @@ const Home: React.FC = () => {
                     className="absolute  w-full h-full object-cover opacity-60"
                   />
                   {/* Overlay for Watch Video */}
-                  <div className="absolute inset-0 flex flex-row justify-center items-center text-white">
+                  {/* <div className="absolute inset-0 flex flex-row justify-center items-center text-white">
                     <span className="text-3xl">
                       <FaCirclePlay />
                     </span>
                     <p className="text-sm ml-2 font-semibold">Watch Video</p>
-                  </div>
+                  </div> */}
                 </motion.div>
               </div>
             </div>
@@ -423,10 +496,10 @@ const Home: React.FC = () => {
             viewport={{ amount: 0.2 }}
             className="lg:w-1/2 md:w-full px-10"
           >
-            <h5 className="text-sm text-[#f89c7c] tracking-widest uppercase">
-              About Medicalife
+            <h5 className="text-xl md:text-2xl font-bold text-[#f89c7c]  tracking-widest uppercase">
+              About MedPredit
             </h5>
-            <h2 className="text-4xl font-bold text-[#07332f] mt-2">
+            <h2 className="text-3xl md:text-4xl lg:text-4xl  font-bold text-[#07332f] mt-2">
               Your Trusted Healthcare Partner
             </h2>
             <p className="text-gray-700 mt-4">
@@ -474,10 +547,10 @@ const Home: React.FC = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="text-center mt-10"
             >
-              <h3 className="text-[#D8927A] uppercase tracking-widest">
+              <h3 className="text-xl md:text-2xl font-bold text-[#f89c7c] uppercase tracking-widest">
                 Our Services
               </h3>
-              <h2 className="text-4xl font-bold text-[#07332F]">
+              <h2 className="text-3xl md:text-4xl lg:text-4xl  mt-5 font-bold text-[#07332F]">
                 Simplify health tracking for your entire family with MedPredit!
               </h2>
             </motion.div>
@@ -505,7 +578,7 @@ const Home: React.FC = () => {
                       src={service.icon}
                       alt="no Image"
                     />
-                    <h3 className="text-xl text-center font-semibold mt-4 text-[#07332F] group-hover:text-white">
+                    <h3 className="text-xl text-center font-semibold mt-4 text-[#F4A38A] group-hover:text-white">
                       {service.title}
                     </h3>
                     <p className="text-gray-600 text-center mt-2 group-hover:text-gray-200">
@@ -514,7 +587,7 @@ const Home: React.FC = () => {
                   </div>
 
                   {/* Button */}
-                  <motion.a
+                  {/* <motion.a
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
@@ -522,7 +595,7 @@ const Home: React.FC = () => {
                     className="relative bg-[#F4A38A] text-white text-center py-3 font-semibold flex justify-center items-center gap-2 transition-all duration-300 z-10 group-hover:text-[#07332F]"
                   >
                     Read More <FaArrowRight />
-                  </motion.a>
+                  </motion.a> */}
                 </motion.div>
               ))}
             </div>
@@ -567,7 +640,7 @@ const Home: React.FC = () => {
             className="w-full md:w-auto flex justify-center md:justify-end"
           >
             <button className="border border-[#F4A38A] text-[#F4A38A] px-6 py-3 rounded-full text-lg font-semibold flex items-center gap-2 hover:bg-[#F4A38A] hover:text-white transition-all duration-300">
-              Make Appointment <FaCalendarCheck />
+              Make Appointment <FaCalendarCheck /> Coming Soon..!
             </button>
           </motion.div>
         </div>
@@ -585,10 +658,10 @@ const Home: React.FC = () => {
           >
             {/* Left Content */}
             <div className="w-full md:w-1/2 lg:w-[40%]">
-              <p className="text-[#F4A38A] uppercase tracking-wide font-semibold">
+              <p className="text-[#F4A38A] text-xl md:text-2xl font-bold uppercase tracking-wide ">
                 How We Work
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#002E2C] mt-2 leading-tight">
+              <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-[#002E2C] mt-2 leading-tight">
                 Revolutionizing Healthcare at Your Fingertips
               </h2>
             </div>
@@ -660,25 +733,25 @@ const Home: React.FC = () => {
               className="absolute top-[80%] md:top-[90%] lg:top-[85%] right-0 flex gap-1"
             >
               <div className="bg-[#023E36] text-white p-6 md:p-8 lg:p-10 w-36 h-28 md:w-40 md:h-30 text-center">
-                <p className="text-3xl font-bold">
+                {/* <p className="text-3xl font-bold">
                   {isVisible ? (
                     <CountUp start={0} end={100} duration={1} />
                   ) : (
                     "0"
                   )}
                   +
-                </p>
+                </p> */}
                 <p className="text-sm">Doctors</p>
               </div>
               <div className="bg-[#F4A38A] text-white p-6 md:p-8 lg:p-10 w-36 h-28 md:w-40 md:h-30 text-center">
-                <p className="text-3xl font-bold">
+                {/* <p className="text-3xl font-bold">
                   {isVisible ? (
                     <CountUp start={0} end={16} duration={1} />
                   ) : (
                     "0"
                   )}
                   +
-                </p>
+                </p> */}
                 <p className="text-sm">World Office</p>
               </div>
             </motion.div>
@@ -692,10 +765,10 @@ const Home: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full md:w-[50%] lg:w-[55%]"
           >
-            <p className="text-[#F4A38A] text-xl md:text-2xl uppercase tracking-wide font-light">
+            <p className="text-[#F4A38A] text-xl md:text-2xl font-bold uppercase tracking-wide ">
               FAQs
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#002E2C] mt-2 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-[#002E2C] mt-2 leading-tight">
               Consultations with Qualified Doctors.
             </h2>
 
@@ -745,10 +818,10 @@ const Home: React.FC = () => {
 
       <section className="bg-[#023E36] py-16 px-10">
         <div className="max-w-6xl mx-auto p-10">
-          <p className="text-[#F4A38A] uppercase tracking-wide font-semibold">
+          <p className="text-[#F4A38A] text-xl md:text-2xl font-bold uppercase tracking-wide ">
             Testimonial
           </p>
-          <h2 className="text-4xl font-bold text-white mt-2">
+          <h2 className="text-3xl md:text-4xl lg:text-4xl  font-bold text-white mt-2">
             What Users Say
           </h2>
 
@@ -793,10 +866,10 @@ const Home: React.FC = () => {
 
       <section id="pages" className="bg-[#fef6f2] mt-40 py-10 px-6">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-[#f7a582] text-lg font-extralight uppercase">
-            Blogs
+          <h3 className="text-[#f7a582] text-xl md:text-2xl font-bold uppercase">
+            upcoming Blogs
           </h3>
-          <h2 className="text-3xl font-bold text-[#07332f] mt-2">
+          <h2 className="text-3xl md:text-4xl lg:text-4xl  font-bold text-[#07332f] mt-2">
             Latest News & Articles.
           </h2>
 
@@ -822,12 +895,12 @@ const Home: React.FC = () => {
                 <p className="text-[#07332f] text-sm mt-5">
                   {article.description}
                 </p>
-                <a
+                {/* <a
                   href={article.link}
                   className="text-[#f7a582] font-extralight mt-2 inline-block"
                 >
                   Read More →
-                </a>
+                </a> */}
               </motion.div>
             ))}
           </div>
@@ -844,9 +917,6 @@ const Home: React.FC = () => {
           backgroundPosition: "center",
         }}
       >
-        <h3 className="text-lg font-medium text-center text-white uppercase tracking-wide">
-          Fill the Form
-        </h3>
         <h2 className="text-3xl font-bold text-white text-center mb-6">
           Contact Form
         </h2>
@@ -872,42 +942,64 @@ const Home: React.FC = () => {
           </div>
 
           {/* Right Side - Form */}
-          <div className="p-8">
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="Name"
+          <form>
+            <div className="p-8">
+              <form className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    name="name"
+                    value={name}
+                    onChange={e=>setName(e.target.value)}
+                    className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
+                  />
+                   <input
+                    type="text"
+                    placeholder="Your Phone"
+                    value={phone}
+                    onChange={e => setPhone(e.target.value)}
+            
+                    className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
+                  />
+                  
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-[100%] md:w-[204%] lg:w-[204%]">
+                 
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+            
+                    className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
+                  />
+                  {/* <input
+                    type="date"
+                    className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
+                  /> */}
+                </div>
+                <textarea
+                  placeholder="Your Message"
+                  name="message"
+                  value={description}
+                  onChange={e => setDescription(e.target.value)}
+          
+                  rows={4}
                   className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
-                />
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
-                />
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="Your Phone"
-                  className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
-                />
-                <input
-                  type="date"
-                  className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
-                />
-              </div>
-              <textarea
-                placeholder="Your Message"
-                rows={4}
-                className="w-full p-3 bg-transparent border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-[#f7a582]"
-              ></textarea>
+                ></textarea>
 
-              <button className="w-[25%] p-3 bg-transparent border-2 border-[#f7a582] text-[#f7a582] rounded-full font-semibold hover:bg-white hover:text-[#f7a582] transition duration-300">
-                Send
-              </button>
-            </form>
-          </div>
+                <button
+                  className="w-[25%] p-3 bg-transparent border-2 border-[#f7a582] text-[#f7a582] rounded-full font-semibold hover:bg-white hover:text-[#f7a582] transition duration-300"
+                  onClick={handleClick}
+
+                >
+                  Send
+                </button>
+              </form>
+            </div>
+          </form>
         </motion.div>
       </section>
 

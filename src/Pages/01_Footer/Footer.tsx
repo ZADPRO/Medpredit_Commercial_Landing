@@ -1,19 +1,32 @@
 import { Link } from "react-router-dom"; // Import Link for internal routing
 import logo from "../../assets/images/logo.svg";
-import {
-  FaLinkedin,
-  FaYoutube,
-  FaTwitter,
-  FaInstagram,
-  FaFacebook,
-} from "react-icons/fa";
+// import {
+//   FaLinkedin,
+//   FaYoutube,
+//   FaTwitter,
+//   FaInstagram,
+//   FaFacebook,
+// } from "react-icons/fa";
 import {
   FaMapMarkerAlt,
   FaEnvelope,
   FaClock,
 } from "react-icons/fa"; // React Icons for Contact
+import { IoCall } from "react-icons/io5";
+import { useState } from "react";
 
 export default function Footer() {
+
+    const [email, setEmail] = useState('');
+  
+    
+    const handleClick = () => {
+      const to = "info@zadroit.com";
+     
+    
+      const mailtoLink = `mailto:${to}`;
+      window.location.href = mailtoLink;
+    };
   // Function to handle smooth scrolling
   const scrollToSection = (id: any) => {
     const element = document.getElementById(id);
@@ -34,7 +47,7 @@ export default function Footer() {
             Our family-centered approach to healthcare ensures that each member
             of your family receives personalized attention.
           </p>
-          <div className="flex gap-4 mt-8 text-[#FFA377]">
+          {/* <div className="flex gap-4 mt-8 text-[#FFA377]">
             <a
               href="https://www.linkedin.com/company/zadroit-it-solution-private-limited/posts/?feedView=all"
               target="_blank"
@@ -70,7 +83,7 @@ export default function Footer() {
             >
               <FaFacebook size={20} />
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* Quick Links */}
@@ -93,11 +106,12 @@ export default function Footer() {
               <Link to="/home#contact" onClick={() => scrollToSection("contact")}>Contact Us</Link>
             </li>
             <li>
-              <Link to="/terms" onClick={() => scrollToSection("terms")}>Terms & Conditions</Link>
+              <Link to="/terms#terms" onClick={() => scrollToSection("terms")}>Terms and Condition &  Refund Policy</Link>
             </li>
             <li>
-              <Link to="/privacy-policy" onClick={() => scrollToSection("privacy")}>Privacy Policy</Link>
+              <Link to="/privacy-policy#privacy" onClick={() => scrollToSection("privacy")}>Privacy Policy</Link>
             </li>
+           
           </ul>
         </div>
 
@@ -105,18 +119,25 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold">Contact Details</h3>
           <ul className="text-white mt-8 space-y-2">
+        
             <li className="flex items-center gap-2">
-              <FaMapMarkerAlt className="text-[#FFA377] text-5xl" /> 38/37B,
+              <FaMapMarkerAlt className="text-[#FFA377] text-5xl" /> 
+              ZAdroit IT Solutions Private Limited,
+              38/37B,
               Logi Chetty Street Number 1, Logi Street, Gugai, Salem, Tamil Nadu
               636006
             </li>
             <li className="flex items-center gap-2">
               <FaEnvelope className="text-[#FFA377]" /> info@zadroit.com
             </li>
+          
 
             <li className="flex items-center gap-2">
-              <FaClock className="text-[#FFA377]" /> 8 AM - 5 PM, Monday -
+              <FaClock className="text-[#FFA377]" /> 9.30 AM - 6.30 PM, Monday -
               Friday
+            </li>
+            <li className="flex items-center gap-2">
+              <IoCall  className="text-[#FFA377] text-xl" /> 0427-356-2462
             </li>
           </ul>
         </div>
@@ -134,9 +155,12 @@ export default function Footer() {
             <input
               type="email"
               placeholder="Enter Your Email"
+              required
+              value={email}
+              onChange={e=>setEmail(e.target.value)}
               className="w-full p-2 bg-transparent text-white focus:outline-none"
             />
-            <button className="bg-[#FFA377] px-4 py-2 text-black font-semibold">
+            <button className="bg-[#FFA377] px-4 py-2 text-black font-semibold" onClick={handleClick}>
               Send
             </button>
           </div>
