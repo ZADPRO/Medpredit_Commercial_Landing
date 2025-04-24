@@ -7,6 +7,7 @@ import Terms from "../03_Terms/Terms";
 import Privacy from "../04_Privacy/Privacy";
 import Login from "../05-Login/Login";
 import Dashboard from "../06-Dashboard/Dashboard";
+import Subscription from "../07-Subscription/Subscription";
 
 // import Terms from "../03_Terms/Terms";
 // import Privacy from "../04_Privacy/Privacy";
@@ -20,7 +21,7 @@ function App() {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/terms" element={<Terms />} />
-    
+          <Route path="/subscription" element={<Subscription/>}/>
           <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
