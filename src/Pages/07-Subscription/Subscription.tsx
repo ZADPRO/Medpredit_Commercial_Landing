@@ -6,6 +6,7 @@ import logo from "../../assets/images/fav.png"
 import "./Subscription.css"
 import Lottie from "lottie-react";
 import tickAnimation from "./tickanimation.json"
+import { useTranslation } from "react-i18next";
 
 declare global {
     interface Window {
@@ -52,6 +53,8 @@ interface UpgradeInfo {
 
 
 const Subscription = () => {
+
+    const { t, i18n } = useTranslation("global");
 
     const queryParams = new URLSearchParams(window.location.search);
     const accessdata = {
@@ -100,7 +103,10 @@ const Subscription = () => {
             //     packageId: queryParams.get('packageId') || "",
             //     refLanCode: queryParams.get('refLanCode') || ""
             // })
+            i18n.changeLanguage(queryParams.get('refLanCode') || 'english');
             getSelectedPackage();
+
+            console.log(queryParams.get('refLanCode'))
         } else {
             navigate("/")
         }
@@ -450,8 +456,7 @@ const Subscription = () => {
                                                         marginTop: "0%",
                                                     }}
                                                 >
-                                                    {" "}
-                                                    {"Payment Successful"}
+                                                    {t("subPayment.Payment Successful")}
                                                 </p>
                                             </div>
                                         </div>
@@ -478,7 +483,7 @@ const Subscription = () => {
                                         >
                                             <header id="header-3a" className="flex items-center gap-4">
                                                 <h3 className="flex-1 text-xl font-medium text-slate-700">
-                                                    Payment Method
+                                                    {t("subPayment.Payment Method")}
                                                 </h3>
                                                 <button
                                                     onClick={() => setShowPaymentModal(false)}
@@ -533,7 +538,7 @@ const Subscription = () => {
                         <div style={{ width: "100%", height: "8vh", padding: "5px 20px" }}>
                             <div style={{ fontSize: "1.2rem", fontFamily: "Inter", fontWeight: "600", display: "flex", alignItems: "flex-end", gap: "20px", color: "#000" }}>
                                 <img src={logo} style={{ height: "40px" }} alt="Logo" />
-                                Subscription Plan
+                                {t("subPayment.Subscription Plan")}
                             </div>
                         </div>
                         {
@@ -572,27 +577,27 @@ const Subscription = () => {
                                             <table className="subscription-detail-table" style={{ marginTop: "5px" }}>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Plan Type</td>
+                                                        <td>{t("subPayment.Plan Type")}</td>
                                                         <td>{selectPackage?.refPkgName}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Description</td>
+                                                        <td>{t("subPayment.Description")}</td>
                                                         <td>{selectPackage?.refPkgDescription}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Plan Validity</td>
-                                                        <td>{selectPackage?.refPkgValidDays} days</td>
+                                                        <td>{t("subPayment.Plan Validity")}</td>
+                                                        <td>{selectPackage?.refPkgValidDays} {t("subPayment.days")}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Valid Members</td>
+                                                        <td>{t("subPayment.Valid Members")}</td>
                                                         <td>{selectPackage?.refPkgValidMembers}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Start Date</td>
+                                                        <td>{t("subPayment.Start Date")}</td>
                                                         <td>{new Date().toISOString().split("T")[0]}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Expiry Date</td>
+                                                        <td>{t("subPayment.Expiry Date")}</td>
                                                         <td>
                                                             {selectPackage?.refPkgValidDays &&
                                                                 addDaysToDate(
@@ -647,27 +652,27 @@ const Subscription = () => {
                                             <table className="subscription-detail-table" style={{ marginTop: "5px" }}>
                                                 <tbody>
                                                     <tr>
-                                                        <td>Plan Type</td>
+                                                        <td>{t("subPayment.Plan Type")}</td>
                                                         <td>{selectPackage?.refPkgName}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Description</td>
+                                                        <td>{t("subPayment.Description")}</td>
                                                         <td>{selectPackage?.refPkgDescription}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Plan Validity</td>
-                                                        <td>{selectPackage?.refPkgValidDays} days</td>
+                                                        <td>{t("subPayment.Plan Validity")}</td>
+                                                        <td>{selectPackage?.refPkgValidDays} {t("subPayment.days")}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Valid Members</td>
+                                                        <td>{t("subPayment.Valid Members")}</td>
                                                         <td>{selectPackage?.refPkgValidMembers}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Start Date</td>
+                                                        <td>{t("subPayment.Start Date")}</td>
                                                         <td>{new Date().toISOString().split("T")[0]}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Expiry Date</td>
+                                                        <td>{t("subPayment.Expiry Date")}</td>
                                                         <td>
                                                             {selectPackage?.refPkgValidDays &&
                                                                 addDaysToDate(
@@ -705,7 +710,7 @@ const Subscription = () => {
                                     style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "6vh", fontWeight: 600 }}
                                     className="medCustom-button02"
                                 >
-                                    Proceed Payment
+                                    {t("subPayment.Proceed")} {t("subPayment.Payment")}
                                 </button>
                             </div>
                         </div>
