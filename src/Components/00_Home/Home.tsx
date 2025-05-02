@@ -2,28 +2,41 @@ import React, { useEffect, useRef } from "react";
 import dr1 from "../../assets/images/dr1.png";
 import dr2 from "../../assets/images/dr2.png";
 import dot from "../../assets/images/dot.png";
-import { FaHandHoldingMedical } from "react-icons/fa";
+// import { FaHandHoldingMedical } from "react-icons/fa";
 import dr3 from "../../assets/images/dr3.png";
 import dr4 from "../../assets/images/dr4.png";
 import dr5 from "../../assets/images/dr5.png";
 
-import img1 from "../../assets/images/img1.svg";
+// import img1 from "../../assets/images/img1.svg";
 import { FcApproval } from "react-icons/fc";
 
-import icon1 from "../../assets/images/icon1.svg";
+import icon1 from "../../assets/images/service/icon1.svg";
+import icon2 from "../../assets/images/service/icon2.svg";
+import icon3 from "../../assets/images/service/icon3.svg";
+import icon4 from "../../assets/images/service/icon4.svg";
+import icon5 from "../../assets/images/service/icon5.svg";
 
-import icon3 from "../../assets/images/icon3.svg";
-import selfs from "../../assets/images/selfs.svg";
-import history from "../../assets/images/history.svg";
-import keep from "../../assets/images/Keep.svg";
+import profile1 from "../../assets/images/Patient/patient1.png"
+import profile2 from "../../assets/images/Patient/patient2.png"
+import profile3 from "../../assets/images/Patient/patient3.png"
+import profile4 from "../../assets/images/Patient/patient4.png"
+
+
+
+
+
+
+// import selfs from "../../assets/images/selfs.svg";
+// import history from "../../assets/images/history.svg";
+// import keep from "../../assets/images/Keep.svg";
 import suitcase from "../../assets/images/case.svg";
-import self from "../../assets/images/self.svg";
-import score from "../../assets/images/score.svg";
-import profile from "../../assets/images/profile.svg";
-import take from "../../assets/images/take.svg";
-import past from "../../assets/images/past.svg";
+// import self from "../../assets/images/self.svg";
+// import score from "../../assets/images/score.svg";
+// import profile from "../../assets/images/profile.svg";
+// import take from "../../assets/images/take.svg";
+// import past from "../../assets/images/past.svg";
 import grpdr from "../../assets/images/grpdr.png";
-import { FaCalendarCheck } from "react-icons/fa";
+// import { FaCalendarCheck } from "react-icons/fa";
 import treatmentbg from "../../assets/images/treatmentbg.jpg";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useState } from "react";
@@ -54,28 +67,28 @@ const Home: React.FC = () => {
     {
       name: "Nirmal",
       role: "Patient",
-      image: profile,
+      image: profile1,
       feedback:
         "MedPredit helped me understand my health risks and make better lifestyle choices. It’s an easy-to-use tool that gives valuable insights.",
     },
     {
       name: "Riya",
       role: "Patient",
-      image: profile,
+      image: profile2,
       feedback:
         "Tracking my family’s health in one place has never been easier! I love how MedPredit provides personalized recommendations.",
     },
     {
       name: "Arjun",
       role: "Patient",
-      image: profile,
+      image: profile3,
       feedback:
         "MedPredit gave me a clear picture of my health and what I need to improve. The insights are truly life-changing!",
     },
     {
       name: "Karan",
       role: "Patient",
-      image: profile,
+      image: profile4,
       feedback:
         "With MedPredit, I can monitor my health trends effortlessly. It’s a must-have for anyone serious about their well-being!",
     },
@@ -167,7 +180,7 @@ const Home: React.FC = () => {
       link: "#",
     },
   ];
-  const [isVisible, setIsVisible] = useState(false);
+  const [_isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -231,9 +244,9 @@ const Home: React.FC = () => {
   const services = [
     {
       icon: icon1,
-      title: "Comprehensive Self Health Evaluation",
+      title: "Comprehensive Health Assessments ",
       description:
-        "Assessing fitness, stress, habits, diet, BMI, and sleep for overall well-being.",
+        "We go beyond basic tracking. Our app provides detailed assessments across multiple health categories to give you a complete picture of your well-being.You’ll be able to evaluate and monitor Physical activity, Dietary, Sleep, Hypertension, BMI, Smoking and alcohol habits etc. ",
     },
     // {
     //   icon: test,
@@ -242,28 +255,25 @@ const Home: React.FC = () => {
     //     "Expert guidance from specialists for personalized diagnosis and treatment",
     // },
     {
+      icon: icon2,
+      title: "Personalized Health Analysis ",
+      description:
+     "Our app offers personalized health reports, analysing your responses to the detailed questions in each category. The app provides scoring for each aspect of your health and gives you clear insights into areas of improvement. "    },
+    {
       icon: icon3,
-      title: "Preventive & Wellness Programs",
+      title: " Lifestyle Recommendations ",
       description:
-        "Stay ahead of illness with our Preventive & Wellness Programs—proactive care for lasting well-being.",
-    },
+       "Based on the analysis, MedPredit offers customized lifestyle recommendations to help you improve your health. Whether it’s tweaking your diet, improving sleep, or making changes to your activity levels, we provide actionable steps for better health management "   },
     {
-      icon: selfs,
-      title: "Self-Education/Awareness",
+      icon: icon4,
+      title: "Family Health Management ",
       description:
-        "Our platform provides detailed information and visuals to help users understand various illnesses, their symptoms, and treatment options.",
-    },
+       "Our platform isn't just for individuals — it's designed to manage your entire family's health. From tracking each member's health assessments to storing medical records, MedPredit helps you keep everyone’s health in check from a single account. "   },
     {
-      icon: history,
-      title: "Evaluation history ",
+      icon: icon5,
+      title: " Visual Health Tracking  ",
       description:
-        "We specialize in providing in-depth tracking and analysis of evaluation records to help individuals, families, and organizations make informed decisions.",
-    },
-    {
-      icon: keep,
-      title: "Keep track of sugar BP ",
-      description:
-        "Track your sugar & BP with secure cloud storage. Access anytime, generate reports, and share with doctors & family. Stay informed, stay healthy!",
+        "We make it easy to visualize your progress with health trend graphs. These trends help you spot improvements or potential issues early, so you can take immediate action before things get worse. ",
     },
   ];
 
@@ -303,11 +313,10 @@ const Home: React.FC = () => {
               Your Personal Health Tracker
             </p>
             <h1 className="text-3xl md:text-4xl font-bold text-[#f89c7c] mt-2">
-              Seamless, secure, and smart your health companion anytime!
+            Predict your health. Track your future
             </h1>
             <p className="text-white mt-4">
-              At MedPredit, we provide top-tier medical care with compassion and
-              excellence.
+            With Medipredit, you can take proactive steps towards preventive and predictive healthcare, empowering informed decisions about your well-being. 
             </p>
             {/* Buttons */}
             <div className="mt-6 flex justify-center lg:justify-start space-x-4">
@@ -359,8 +368,13 @@ const Home: React.FC = () => {
         </div>
       </div>
 
+      
+
       <div className="bg-[#fef6f3] p-6 md:p-12 lg:p-25">
         {/* Top Section - Contact Info */}
+        <h5 className="text-xl md:text-2xl  flex justify-center mb-5 font-bold text-[#f89c7c]  tracking-widest uppercase">
+               MedPredit Packages
+            </h5>
 
         <div className="flex flex-wrap md:flex-nowrap">
           {/* Contact Info Box */}
@@ -369,23 +383,23 @@ const Home: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }} // ✅ Allows re-triggering on scroll
-            className="bg-[#f89c7c] flex flex-col text-white w-full md:w-1/3 lg:w-1/3 p-6 md:h-[250px] lg:h-[300px]"
+            className="bg-[#f89c7c] flex flex-col text-[#07332f] w-full md:w-1/3 lg:w-1/3 p-6 md:h-[250px] lg:h-[300px]"
           >
-            <h3 className="text-2xl mt-5 md:mt-10 p-3 font-semibold">
-              Don't <span className="font-extrabold text-xl">Hesitate</span> To
-              Contact Us
+            <h3 className="text-2xl mt-5 md:mt-2 p-3 font-semibold">
+             Basic Plan
             </h3>
-            <button
-              className="flex flex-row cursor-pointer justify-center mt-5 md:mt-10 items-center bg-black p-3 text-[160%]"
-              onClick={() => {
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              Get in Touch
-              <FaHandHoldingMedical className="ml-2 text-xl w-10" />
-            </button>
+            <p className="text-2xl mt-2 p-3 text-[#07332f] font-semibold">
+             Package Applied for Primary user Only
+                </p>
+                <ul className="p-3 font-semibold list-disc pl-5">
+                <li>
+                  1 Member
+                </li>
+                <li>
+                  365 Days Validity
+                </li>
+              </ul>
+
           </motion.div>
 
           {/* Family Health Box */}
@@ -396,12 +410,19 @@ const Home: React.FC = () => {
             viewport={{ once: true, amount: 0.2 }} // ✅ Allows animation when scrolling up or down
             className="bg-[#07332f] p-6 text-white w-full md:w-1/3 lg:w-1/3 md:h-[250px] lg:h-[300px]"
           >
-            <img src={img1} alt="logo" className="w-12 h-12" />
-            <h3 className="text-lg font-semibold mt-5">Need Family Health</h3>
+           
+            <h3 className="text-lg font-semibold mt-5">Standard Plan</h3>
             <p className="text-sm mt-2 text-slate-300">
-              We understand the importance of family health & overall
-              well-being.
+             Package Applied for Primary user + 1 Family Members
             </p>
+            <ul className="p-3 font-semibold list-disc pl-5">
+                <li>
+                  1 + 1  Member
+                </li>
+                <li>
+                  365 Days Validity
+                </li>
+                </ul>
           </motion.div>
 
           {/* 24 Hours Service Box */}
@@ -412,12 +433,38 @@ const Home: React.FC = () => {
             viewport={{ once: true, amount: 0.2 }} // ✅ Animation re-triggers when scrolling up or down
             className="bg-[#07332f] p-6 text-white w-full md:w-1/3 lg:w-1/3 md:h-[250px] lg:h-[300px] border-t md:border-l md:border-t-0 border-white"
           >
-            <img src={img1} alt="logo" className="w-12 h-12" />
-            <h3 className="text-lg font-semibold mt-5">24 Hours Service</h3>
+                       <h3 className="text-lg font-semibold mt-5">Family Plan</h3>
             <p className="text-sm mt-2 text-slate-300">
-              We take pride in offering 24-hour medical services to ensure that
-              you.
+             Package Applied for Primary user + 3 Family Members
             </p>
+            <ul className="p-3 font-semibold list-disc pl-5">
+                <li>
+                  1 + 3  Member
+                </li>
+                <li>
+                  365 Days Validity
+                </li>
+                </ul>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }} // ✅ Animation re-triggers when scrolling up or down
+            className="bg-[#07332f] p-6 text-white w-full md:w-1/3 lg:w-1/3 md:h-[250px] lg:h-[300px] border-t md:border-l md:border-t-0 border-white"
+          >
+                       <h3 className="text-lg font-semibold mt-5">Pro Plan</h3>
+            <p className="text-sm mt-2 text-slate-300">
+             Package Applied for Primary user + 5 Family Members
+            </p>
+            <ul className="p-3 font-semibold list-disc pl-5">
+                <li>
+                  1 + 5  Member
+                </li>
+                <li>
+                  365 Days Validity
+                </li>
+                </ul>
           </motion.div>
         </div>
 
@@ -500,13 +547,9 @@ const Home: React.FC = () => {
               About MedPredit
             </h5>
             <h2 className="text-3xl md:text-4xl lg:text-4xl  font-bold text-[#07332f] mt-2">
-              Your Trusted Healthcare Partner
+            Predictive and Preventive Healthcare
             </h2>
-            <p className="text-gray-700 mt-4">
-              Take charge of your health with MedPredit, a smart self-assessment
-              tool. Track, improve, and secure your family’s health in one
-              place!
-            </p>
+           
 
             {/* Bullet Points */}
             <ul className="mt-4 space-y-2">
@@ -530,6 +573,7 @@ const Home: React.FC = () => {
               </li>
             </ul>
 
+
             {/* Read More Button */}
             {/* <button className="mt-6 rounded-4xl border-2 border-[#f89c7c] text-[#f89c7c] px-6 py-2 shadow-lg active:bg-[#07332f] hover:bg-[#07332f] transition">
               Read More
@@ -548,7 +592,7 @@ const Home: React.FC = () => {
               className="text-center mt-10"
             >
               <h3 className="text-xl md:text-2xl font-bold text-[#f89c7c] uppercase tracking-widest">
-                Our Services
+              How Medpredit Works
               </h3>
               <h2 className="text-3xl md:text-4xl lg:text-4xl  mt-5 font-bold text-[#07332F]">
                 Simplify health tracking for your entire family with MedPredit!
@@ -603,9 +647,9 @@ const Home: React.FC = () => {
         </section>
       </div>
 
-      <section className="bg-[#002E2C] w-full p-6 md:p-10 lg:p-16">
+      {/* <section className="bg-[#002E2C] w-full p-6 md:p-10 lg:p-16">
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 lg:gap-16">
-          {/* Left Side (Icon & Text) */}
+       
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -622,16 +666,16 @@ const Home: React.FC = () => {
             </div>
             <div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
-                Open For Appointments
+              Instal our app  
+           
               </h2>
               <p className="text-gray-300 mt-2 text-sm md:text-base lg:text-lg max-w-lg">
-                We are delighted to announce that our doors are open, and we are
-                now accepting appointments to serve you better.
+              Unlock Smarter Health with MedPredit - Download MedPredit now and start tracking smarter today 
               </p>
             </div>
           </motion.div>
 
-          {/* Right Side (Button) */}
+    
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -639,16 +683,22 @@ const Home: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="w-full md:w-auto flex justify-center md:justify-end"
           >
-            <button className="border border-[#F4A38A] text-[#F4A38A] px-6 py-3 rounded-full text-lg font-semibold flex items-center gap-2 hover:bg-[#F4A38A] hover:text-white transition-all duration-300">
-              Make Appointment <FaCalendarCheck /> Coming Soon..!
-            </button>
+           <div className="border border-[#F4A38A] text-[#F4A38A] px-6 py-3 rounded-full text-lg font-semibold flex items-center gap-2 hover:bg-[#F4A38A] hover:text-white transition-all duration-300">
+  <img
+    src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=DummyQR"
+    alt=" QR Code"
+    className="w-12 h-12"
+  />
+   QR Code
+</div>
+
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="bg-[#feefe9] px-6 py-16 md:px-10 lg:px-20">
+      {/* <section className="bg-[#feefe9] px-6 py-16 md:px-10 lg:px-20">
         <div className="max-w-6xl mx-auto">
-          {/* Top Section */}
+       
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -656,24 +706,23 @@ const Home: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col md:flex-row justify-between items-start gap-6 md:gap-12"
           >
-            {/* Left Content */}
+         
             <div className="w-full md:w-1/2 lg:w-[40%]">
               <p className="text-[#F4A38A] text-xl md:text-2xl font-bold uppercase tracking-wide ">
-                How We Work
+                How Medpredit  Works
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-[#002E2C] mt-2 leading-tight">
                 Revolutionizing Healthcare at Your Fingertips
               </h2>
             </div>
 
-            {/* Right Description */}
+            
             <p className="w-full md:w-1/2 text-gray-600 text-sm md:text-base lg:text-lg">
-              Take the self-assessment to check your health, get your
-              personalized score, and take action to enhance your well-being!
+            Trust Medpredit for personalized health solutions backed by scientific expertise and delivered with care. Let us be your trusted partner in achieving and maintaining optimal health. 
             </p>
           </motion.div>
 
-          {/* Icons Section */}
+       
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
               { img: self, text: "Complete the Self-Assessment  " },
@@ -706,7 +755,7 @@ const Home: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="bg-[#FFF7F3] py-16 px-6 md:px-10 lg:px-20">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-center">
@@ -725,7 +774,7 @@ const Home: React.FC = () => {
             />
 
             {/* Floating Stats */}
-            <motion.div
+            {/* <motion.div
               ref={sectionRef} // Attaching ref to track visibility
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -733,28 +782,28 @@ const Home: React.FC = () => {
               className="absolute top-[80%] md:top-[90%] lg:top-[85%] right-0 flex gap-1"
             >
               <div className="bg-[#023E36] text-white p-6 md:p-8 lg:p-10 w-36 h-28 md:w-40 md:h-30 text-center">
-                {/* <p className="text-3xl font-bold">
+                <p className="text-3xl font-bold">
                   {isVisible ? (
                     <CountUp start={0} end={100} duration={1} />
                   ) : (
                     "0"
                   )}
                   +
-                </p> */}
+                </p>
                 <p className="text-sm">Doctors</p>
               </div>
               <div className="bg-[#F4A38A] text-white p-6 md:p-8 lg:p-10 w-36 h-28 md:w-40 md:h-30 text-center">
-                {/* <p className="text-3xl font-bold">
+                <p className="text-3xl font-bold">
                   {isVisible ? (
                     <CountUp start={0} end={16} duration={1} />
                   ) : (
                     "0"
                   )}
                   +
-                </p> */}
+                </p>
                 <p className="text-sm">World Office</p>
               </div>
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           {/* Right Side - FAQ */}
@@ -769,7 +818,7 @@ const Home: React.FC = () => {
               FAQs
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-[#002E2C] mt-2 leading-tight">
-              Consultations with Qualified Doctors.
+            Curious about MedPredict? Let’s clear things up together. 
             </h2>
 
             {/* FAQ Section */}
