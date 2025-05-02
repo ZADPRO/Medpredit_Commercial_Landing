@@ -29,7 +29,7 @@ import profile4 from "../../assets/images/Patient/patient4.png"
 // import selfs from "../../assets/images/selfs.svg";
 // import history from "../../assets/images/history.svg";
 // import keep from "../../assets/images/Keep.svg";
-import suitcase from "../../assets/images/case.svg";
+// import suitcase from "../../assets/images/case.svg";
 // import self from "../../assets/images/self.svg";
 // import score from "../../assets/images/score.svg";
 // import profile from "../../assets/images/profile.svg";
