@@ -592,7 +592,7 @@ const Home: React.FC = () => {
               className="text-center mt-10"
             >
               <h3 className="text-xl md:text-2xl font-bold text-[#f89c7c] uppercase tracking-widest">
-              How Medpredit Works
+              How Medpredit works
               </h3>
               <h2 className="text-3xl md:text-4xl lg:text-4xl  mt-5 font-bold text-[#07332F]">
                 Simplify health tracking for your entire family with MedPredit!
