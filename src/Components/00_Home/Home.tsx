@@ -243,6 +243,7 @@ const Home: React.FC = () => {
 
   const services = [
     {
+     
       icon: icon1,
       title: "Comprehensive Health Assessments ",
       description:
@@ -255,6 +256,7 @@ const Home: React.FC = () => {
     //     "Expert guidance from specialists for personalized diagnosis and treatment",
     // },
     {
+      
       icon: icon2,
       title: "Personalized Health Analysis ",
       description:
@@ -263,7 +265,7 @@ const Home: React.FC = () => {
       icon: icon3,
       title: " Lifestyle Recommendations ",
       description:
-       "Based on the analysis, MedPredit offers customized lifestyle recommendations to help you improve your health. Whether it’s tweaking your diet, improving sleep, or making changes to your activity levels, we provide actionable steps for better health management "   },
+       "Based on the analysis, MedPredit offers customized lifestyle recommendations to help you improve your health. Whether it’s tweaking your diet, improving sleep, or making changes to your activity levels, we provide actionable steps for better health management."   },
     {
       icon: icon4,
       title: "Family Health Management ",
@@ -376,6 +378,12 @@ const Home: React.FC = () => {
                MedPredit Packages
             </h5>
 
+            <h2 className="text-3xl flex mb-5 justify-center md:text-4xl lg:text-4xl  font-bold text-[#07332f] mt-2">
+            365 Days Validity 
+            </h2>
+
+
+
         <div className="flex flex-wrap md:flex-nowrap">
           {/* Contact Info Box */}
           <motion.div
@@ -391,14 +399,7 @@ const Home: React.FC = () => {
             <p className="text-2xl mt-2 p-3 text-[#07332f] font-semibold">
              Package Applied for Primary user Only
                 </p>
-                <ul className="p-3 font-semibold list-disc pl-5">
-                <li>
-                  1 Member
-                </li>
-                <li>
-                  365 Days Validity
-                </li>
-              </ul>
+               
 
           </motion.div>
 
@@ -411,18 +412,12 @@ const Home: React.FC = () => {
             className="bg-[#07332f] p-6 text-white w-full md:w-1/3 lg:w-1/3 md:h-[250px] lg:h-[300px]"
           >
            
-            <h3 className="text-lg font-semibold mt-5">Standard Plan</h3>
-            <p className="text-sm mt-2 text-slate-300">
+           <h3 className="text-2xl mt-5 md:mt-2 p-3 font-semibold">Standard Plan</h3>
+           <p className="text-2xl mt-2 p-3 text-white font-semibold">
              Package Applied for Primary user + 1 Family Members
             </p>
-            <ul className="p-3 font-semibold list-disc pl-5">
-                <li>
-                  1 + 1  Member
-                </li>
-                <li>
-                  365 Days Validity
-                </li>
-                </ul>
+            
+           
           </motion.div>
 
           {/* 24 Hours Service Box */}
@@ -431,20 +426,13 @@ const Home: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }} // ✅ Animation re-triggers when scrolling up or down
-            className="bg-[#07332f] p-6 text-white w-full md:w-1/3 lg:w-1/3 md:h-[250px] lg:h-[300px] border-t md:border-l md:border-t-0 border-white"
+              className="bg-[#f89c7c] flex flex-col text-[#07332f] w-full md:w-1/3 lg:w-1/3 p-6 md:h-[250px] lg:h-[300px]"
           >
-                       <h3 className="text-lg font-semibold mt-5">Family Plan</h3>
-            <p className="text-sm mt-2 text-slate-300">
+                     <h3 className="text-2xl mt-5 md:mt-2 p-3 font-semibold">Family Plan</h3>
+                     <p className="text-2xl mt-2 p-3 text-[#07332f] font-semibold">
              Package Applied for Primary user + 3 Family Members
             </p>
-            <ul className="p-3 font-semibold list-disc pl-5">
-                <li>
-                  1 + 3  Member
-                </li>
-                <li>
-                  365 Days Validity
-                </li>
-                </ul>
+           
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -453,18 +441,11 @@ const Home: React.FC = () => {
             viewport={{ once: true, amount: 0.2 }} // ✅ Animation re-triggers when scrolling up or down
             className="bg-[#07332f] p-6 text-white w-full md:w-1/3 lg:w-1/3 md:h-[250px] lg:h-[300px] border-t md:border-l md:border-t-0 border-white"
           >
-                       <h3 className="text-lg font-semibold mt-5">Pro Plan</h3>
-            <p className="text-sm mt-2 text-slate-300">
+                    <h3 className="text-2xl mt-5 md:mt-2 p-3 font-semibold">Pro Plan</h3>
+                    <p className="text-2xl mt-2 p-3 text-white font-semibold">
              Package Applied for Primary user + 5 Family Members
             </p>
-            <ul className="p-3 font-semibold list-disc pl-5">
-                <li>
-                  1 + 5  Member
-                </li>
-                <li>
-                  365 Days Validity
-                </li>
-                </ul>
+          
           </motion.div>
         </div>
 
@@ -547,7 +528,7 @@ const Home: React.FC = () => {
               About MedPredit
             </h5>
             <h2 className="text-3xl md:text-4xl lg:text-4xl  font-bold text-[#07332f] mt-2">
-            Predictive and Preventive Healthcare
+            Your predictive and Preventive healthcare Partner
             </h2>
            
 
@@ -618,7 +599,7 @@ const Home: React.FC = () => {
 
                   <div className="relative p-6 flex flex-col items-center transition-all duration-300 z-10">
                     <img
-                      style={{ width: "20%", height: "50%" }}
+                      style={{ width: "25%", height: "40%" }}
                       src={service.icon}
                       alt="no Image"
                     />
