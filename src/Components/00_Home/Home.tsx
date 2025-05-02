@@ -647,9 +647,9 @@ const Home: React.FC = () => {
         </section>
       </div>
 
-      <section className="bg-[#002E2C] w-full p-6 md:p-10 lg:p-16">
+      {/* <section className="bg-[#002E2C] w-full p-6 md:p-10 lg:p-16">
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-10 lg:gap-16">
-          {/* Left Side (Icon & Text) */}
+       
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -675,8 +675,8 @@ const Home: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Right Side (Button) */}
-          {/* <motion.div
+    
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -692,9 +692,9 @@ const Home: React.FC = () => {
    QR Code
 </div>
 
-          </motion.div> */}
+          </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* <section className="bg-[#feefe9] px-6 py-16 md:px-10 lg:px-20">
         <div className="max-w-6xl mx-auto">
