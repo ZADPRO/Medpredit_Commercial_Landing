@@ -441,7 +441,7 @@ const Subscription = () => {
                                                         style={{ width: 150, height: 150 }}
                                                         onComplete={() =>
                                                             setTimeout(() => {
-                                                                window.location.href = "medpreditcommercial://";
+                                                                window.location.href = "medpreditcommercial://open/subscriptionPlans";
                                                                 // history.replace("/subscriptionPlans", { refreshPage: true });
                                                                 setShowModal(false);
                                                             }, 1000)
