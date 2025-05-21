@@ -4,44 +4,104 @@ const Privacy: React.FC = () => {
   return (
     <div id="privacy" className="bg-[#fff7f3] text-[#0F3B36] min-h-screen py-12 px-6 md:px-12">
       <div id="home" className="max-w-4xl mx-auto p-6 md:p-12">
-        <h1 className="text-3xl font-bold text-[#0F3B36] mb-6">Medpredit Privacy Policy</h1>
-
-        <p className="text-lg leading-relaxed">
-          Medpredit Technologies ("Medpredit," "we," "our," or "us") is committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you use the Medpredit mobile application ("App") and its associated services. By using the App, you consent to the collection and use of your personal data as described in this Privacy Policy.
+        <h1 className="text-3xl font-bold text-[#0F3B36] mb-6">Privacy Policy</h1>
+        <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">1. Introduction</h3>
+        <p className="text-lg leading-relaxed text-justify">
+          Welcome to Medpredit ("we," "our," or "us"). This Privacy Policy explains how we collect, use, disclose, and protect your personal and health-related information when you use our self-assessment health app ("App").<br />
+          By using the App, you agree to the terms of this Privacy Policy. If you do not agree, please do not use the App
         </p>
+        <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">2. Information We Collect</h3>
 
-        <h2 className="text-2xl font-semibold text-[#0F3B36] mt-6">1. Information We Collect</h2>
+        <h2 className="text-xl font-semibold text-[#0F3B36] mt-4">A. Personal Information</h2>
+        <ul className="list-disc pl-7 space-y-2 mt-1">
+          <li>
+            Name
+          </li>
+          <li>
+            Email address
+          </li>
+          <li>
+            Contact details
+          </li>
+          <li>
+            Date of Birth
+          </li>
+          <li>
+            Marital Status
+          </li>
+          <li>
+            Occupation
+          </li>
+          <li>
+            Career details
+          </li>
+        </ul>
 
-        <h3 className="text-xl font-semibold text-[#0F3B36] mt-4">A. Personal Information:</h3>
-        <p className="text-lg leading-relaxed">Account Information: When you register for the App, we collect your name, email address, phone number, and other contact details.</p>
+        <h2 className="text-xl font-semibold text-[#0F3B36] mt-4">B. Health-Related Information</h2>
+        <ul className="list-disc pl-7 space-y-2 mt-1">
+          <li>Self-reported symptoms</li>
+          <li>Physical and mental health data</li>
+          <li>Lifestyle-related data (e.g., physical activity, tobacco use, stress, sleep, BMI, diet)</li>
+          <li>Family medical history</li>
+        </ul>
 
-        <h3 className="text-xl font-semibold text-[#0F3B36] mt-4">B. Health Information:</h3>
-        <p className="text-lg leading-relaxed">Health Records: We may collect data related to symptoms, diagnoses, and medical consultations.</p>
+        <h2 className="text-xl font-semibold text-[#0F3B36] mt-4">C.  Device & Usage Data</h2>
+        <ul className="list-disc pl-7 space-y-2 mt-1">
+          <li>Mobile number (if registered)</li>
+        </ul>
 
-        <h3 className="text-xl font-semibold text-[#0F3B36] mt-4">C. Usage Data:</h3>
-        <p className="text-lg leading-relaxed">App Activity: We collect information about how you interact with the App, including your IP address and device details.</p>
+        <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">3. How We Use Your Information</h3>
+        <ul className="list-disc pl-7 space-y-2 mt-1">
+          <li>To deliver personalized health insights and self-assessments</li>
+          <li>To store and analyze your responses to health questionnaires</li>
+        </ul>
 
-        <h2 className="text-2xl font-semibold text-[#0F3B36] mt-6">2. How We Use Your Information</h2>
-        <p className="text-lg leading-relaxed">We use the collected information to provide healthcare services, improve our platform, communicate with users, and comply with legal obligations.</p>
+        <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">4. Data Sharing & Disclosure</h3>
+        <p className="text-lg leading-relaxed">We do not sell your personal or health data. We may share information only under the following circumstances:</p>
+        <ul className="list-disc pl-7 space-y-2 my-2">
+          <li>With healthcare providers, only with your explicit consent, to provide health-related services and support.</li>
+          <li>With legal authorities, if required by law.</li>
+        </ul>
+        <p className="text-lg leading-relaxed">Your data is handled with strict confidentiality.</p>
 
-        <h2 className="text-2xl font-semibold text-[#0F3B36] mt-6">3. Sharing of Your Information</h2>
-        <p className="text-lg leading-relaxed">Your data is shared with healthcare providers, service partners, and legal authorities where necessary.</p>
+        <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">5. Data Security</h3>
+        <p className="text-lg leading-relaxed">We implement industry-standard security measures to protect your data, including:</p>
+        <ul className="list-disc pl-7 space-y-2 my-2">
+          <li>SSL-secured communication</li>
+          <li>256-bit encryption protocols</li>
+          <li>Strict access controls and cryptographic key protection</li>
+        </ul>
+        <p className="text-lg leading-relaxed">However, no system is completely secure. Please use the App responsibly.</p>
 
-        <h2 className="text-2xl font-semibold text-[#0F3B36] mt-6">4. Data Retention & Security</h2>
-        <p className="text-lg leading-relaxed">We retain your data only as long as necessary and employ security measures to protect your personal information.</p>
-
-        <h2 className="text-2xl font-semibold text-[#0F3B36] mt-6">5. Your Rights and Choices</h2>
-        <p className="text-lg leading-relaxed">You have the right to access, update, delete, or opt out of data collection. Contact us at</p>  <a
-              href="mailto:info@zadroit.com"
-              className="text-blue-500 underline"
-            >
-              info@zadroit.com
-            </a>
-
-        <h2 className="text-2xl font-semibold text-[#0F3B36] mt-6">6. Changes to This Policy</h2>
-        <p className="text-lg leading-relaxed">We may update this Privacy Policy periodically. The latest version will always be available on our platform.</p>
+        <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">6. Your Rights</h3>
+        <ul className="list-disc pl-7 space-y-2 my-2">
+          <li>
+            Access or update your personal information
+          </li>
+          <li>Delete your account</li>
+          <li>Request a copy of your data</li>
+        </ul>
+        <p className="text-lg leading-relaxed">To exercise these rights, please contact us at <a
+          href="mailto:med-info@zadroit.com"
+          className="text-blue-500 underline"
+        >
+          med-info@zadroit.com
+        </a>.</p>
+        <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">7. Third-Party Links</h3>
+        <p className="text-lg leading-relaxed">The App may contain links to third-party services. We are not responsible for their privacy practices.</p>
+        <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">8. Changes to This Policy</h3>
+        <p className="text-lg leading-relaxed">We may update this Privacy Policy periodically. The latest version will always be available on our platform. Significant changes will be communicated to you.</p>
+        <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">9. Contact Us</h3>
+        <p className="text-lg leading-relaxed">For questions or concerns, contact:</p>
+        <p>Zadroit IT Solutions</p>
+        <p>Email: <a
+          href="mailto:med-info@zadroit.com"
+          className="text-blue-500 underline"
+        >
+          med-info@zadroit.com
+        </a></p>
       </div>
-      
+
     </div>
   );
 };
