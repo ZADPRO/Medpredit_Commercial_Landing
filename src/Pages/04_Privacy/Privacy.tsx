@@ -87,8 +87,8 @@ const Privacy: React.FC = () => {
         >
           med-info@zadroit.com
         </a>.</p>
-        <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">7. Third-Party Links</h3>
-        <p className="text-lg leading-relaxed">The App may contain links to third-party services. We are not responsible for their privacy practices.</p>
+        <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">7. Third-Party Payment Services</h3>
+        <p className="text-lg leading-relaxed">The app may contain links to third-party services used specifically for processing payments. Please note that we are not responsible for the privacy practices or policies of these external services.</p>
         <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">8. Changes to This Policy</h3>
         <p className="text-lg leading-relaxed">We may update this Privacy Policy periodically. The latest version will always be available on our platform. Significant changes will be communicated to you.</p>
         <h3 className="text-2xl font-semibold text-[#0F3B36] mt-6">9. Contact Us</h3>
