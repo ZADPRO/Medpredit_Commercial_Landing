@@ -13,6 +13,8 @@ import Subscription from "../07-Subscription/Subscription";
 // import Privacy from "../04_Privacy/Privacy";
 
 function App() {
+
+  console.log(import.meta.env.VITE_RZR_API_KEY)
   return (
     <div>
       <Router>
