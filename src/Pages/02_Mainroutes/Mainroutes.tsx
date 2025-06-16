@@ -29,8 +29,6 @@ function App() {
           <Route path="/subscription" element={<Subscription />} />
           <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/app-ads.txt" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />
