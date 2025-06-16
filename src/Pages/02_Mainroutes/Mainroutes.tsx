@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import Header from "../00_Header/Header";
 import Footer from "../01_Footer/Footer";
@@ -21,9 +26,11 @@ function App() {
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/terms" element={<Terms />} />
-          <Route path="/subscription" element={<Subscription/>}/>
+          <Route path="/subscription" element={<Subscription />} />
           <Route path="/privacy-policy" element={<Privacy />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/app-ads.txt" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />
