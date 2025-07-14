@@ -76,14 +76,14 @@ export default function Footer() {
               <FaTwitter size={20} />
             </a> */}
             <a
-              href="https://www.instagram.com/medpredit/?utm_source=ig_web_button_share_sheet"
+              href="https://www.instagram.com/_medpredit_/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaInstagram size={20} />
             </a>
             <a
-              href="https://www.facebook.com"
+              href="https://www.facebook.com/profile.php?id=61576384105586"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -120,6 +120,7 @@ export default function Footer() {
 
               </ul>
             </div>
+            
 
             {/* Contact Details - Using React Icons */}
             <div>
