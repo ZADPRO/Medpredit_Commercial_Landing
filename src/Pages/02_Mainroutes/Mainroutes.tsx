@@ -32,7 +32,7 @@ function App() {
     <div>
       <Router>
         <Header />
-        <div className="mt-[10vh]">
+        {/* <div className="mt-[10vh]"> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
@@ -52,7 +52,7 @@ function App() {
             {/* <Route path="/version" element={<Version />} /> */}
             {/* <Route path="/reviews" element={<Reviews />} /> */}
           </Routes>
-        </div>
+        {/* </div> */}
         <Footer />
       </Router>
     </div>
