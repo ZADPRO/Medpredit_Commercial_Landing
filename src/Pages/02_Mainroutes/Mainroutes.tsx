@@ -11,7 +11,7 @@ import Subscription from "../07-Subscription/Subscription";
 import AdminPage from "../08-Admin/AdminPage";
 import BlogPage from "../08-Admin/BlogPage";
 import UserReview from "../08-Admin/UserReview";
-import SignUp from "../09_SignUp/SignUp";
+// import SignUp from "../09_SignUp/SignUp";
 import Achievements from "../08-Admin/Achievements";
 import NewRelease from "../08-Admin/NewRelease";
 import Blogs from "../../Components/04_Blogs/Blogs";
@@ -39,7 +39,7 @@ function App() {
           <Route path="/admindashboard" element={<AdminPage />} />
           <Route path="/blogpage" element={<BlogPage />} />
           <Route path="/user-review" element={<UserReview />} />
-          <Route path="/signup" element={<SignUp />} />
+          {/* <Route path="/signup" element={<SignUp />} /> */}
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/newrelease" element={<NewRelease />} />
           <Route path="/blogs" element={<Blogs />} />
