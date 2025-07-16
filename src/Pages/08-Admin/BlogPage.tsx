@@ -22,7 +22,7 @@ interface BlogArray {
 interface FormErrors {
   blogTitle: string;
   blogContent: string;
-  blogImage: string;
+  blogImage?: string;
 }
 
 const BlogPage: React.FC = () => {
@@ -46,7 +46,7 @@ const BlogPage: React.FC = () => {
 
   const toast = useRef<Toast>(null);
 
-  const [profileImage, setProfileImage] = useState("");
+  const [_profileImage, setProfileImage] = useState("");
 
   const [blogs, setBlogs] = useState<BlogArray[]>([]);
 
@@ -73,7 +73,7 @@ const BlogPage: React.FC = () => {
     const newErrors: FormErrors = {
       blogTitle: "",
       blogContent: "",
-      blogImage: "",
+      // blogImage: "",
     };
 
     let isValid = true;
@@ -91,10 +91,10 @@ const BlogPage: React.FC = () => {
     }
 
     // Validate blog image
-    if (!profileImage && !file) {
-      newErrors.blogImage = "Blog image is required";
-      isValid = false;
-    }
+    // if (!profileImage && !file) {
+    //   newErrors.blogImage = "Blog image is required";
+    //   isValid = false;
+    // }
 
     setErrors(newErrors);
 
@@ -111,49 +111,49 @@ const BlogPage: React.FC = () => {
     return isValid;
   };
 
-  const uploadImage = async () => {
-    if (!file) return;
+  // const uploadImage = async () => {
+  //   if (!file) return;
 
-    try {
-      const response = await axios.post(
-        import.meta.env.VITE_API_URL + "/WebsiteRoutes/blogImage",
-        {
-          fileName: file.name,
-        },
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-          },
-        }
-      );
+  //   try {
+  //     const response = await axios.post(
+  //       import.meta.env.VITE_API_URL + "/WebsiteRoutes/blogImage",
+  //       {
+  //         fileName: file.name,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: localStorage.getItem("token"),
+  //         },
+  //       }
+  //     );
 
-      const data = decryptAPIResponse(
-        response.data[1],
-        response.data[0],
-        import.meta.env.VITE_ENCRYPTION_KEY
-      );
+  //     const data = decryptAPIResponse(
+  //       response.data[1],
+  //       response.data[0],
+  //       import.meta.env.VITE_ENCRYPTION_KEY
+  //     );
 
-      localStorage.setItem("token", "Bearer " + data.token);
+  //     localStorage.setItem("token", "Bearer " + data.token);
 
-      if (data.status === true) {
-        const uploadImage = await axios.put(data.uploadUrl, file, {
-          headers: {
-            "Content-Type": file?.type,
-          },
-        });
+  //     if (data.status === true) {
+  //       const uploadImage = await axios.put(data.uploadUrl, file, {
+  //         headers: {
+  //           "Content-Type": file?.type,
+  //         },
+  //       });
 
-        if (uploadImage.status) {
-          setProfileImage(data.fileName);
-          return data.fileName;
-        } else {
-          throw new Error("Error in uploading the Image");
-        }
-      }
-    } catch (error) {
-      console.log("error in uploading Image", error);
-      throw error;
-    }
-  };
+  //       if (uploadImage.status) {
+  //         setProfileImage(data.fileName);
+  //         return data.fileName;
+  //       } else {
+  //         throw new Error("Error in uploading the Image");
+  //       }
+  //     }
+  //   } catch (error) {
+  //     console.log("error in uploading Image", error);
+  //     throw error;
+  //   }
+  // };
 
   const Addblogs = async () => {
     // Prevent multiple submissions
@@ -168,17 +168,18 @@ const BlogPage: React.FC = () => {
 
     try {
       // Upload image first if file is selected
-      let imagePath = profileImage;
-      if (file && !profileImage) {
-        imagePath = await uploadImage();
-      }
+      // let imagePath = profileImage;
+      // if (file && !profileImage) {
+      //   imagePath = await uploadImage();
+      // }
 
       const response = await axios.post(
         import.meta.env.VITE_API_URL + "/WebsiteRoutes/uploadBlog",
         {
           blogTitle: inputs.blogTitle,
           blogContent: inputs.blogContent,
-          filePath: imagePath,
+          // filePath: imagePath,
+          filePath: null,
         },
         {
           headers: {
@@ -271,8 +272,6 @@ const BlogPage: React.FC = () => {
         console.log("Error fetching Blogs:", e);
       });
   };
-
- 
 
   useEffect(() => {
     fetchBlogs();
@@ -400,7 +399,9 @@ const BlogPage: React.FC = () => {
                       required
                     />
                     {errors.blogTitle && (
-                      <small className="text-[#e02929]">{errors.blogTitle}</small>
+                      <small className="text-[#e02929]">
+                        {errors.blogTitle}
+                      </small>
                     )}
                   </div>
 
@@ -462,7 +463,9 @@ const BlogPage: React.FC = () => {
                       </div>
                     )}
                     {errors.blogImage && (
-                      <small className="text-[#e02929]">{errors.blogImage}</small>
+                      <small className="text-[#e02929]">
+                        {errors.blogImage}
+                      </small>
                     )}
                   </div>
                 </div>
