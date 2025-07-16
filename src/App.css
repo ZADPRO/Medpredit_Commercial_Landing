@@ -1,3 +1,7 @@
 html {
-    scroll-behavior: smooth;
-  }
+  scroll-behavior: smooth;
+}
+
+.p-fileupload-file-badge.p-badge.p-component.p-badge-warning{
+  display: none !important;
+}
