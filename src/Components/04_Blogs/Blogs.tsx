@@ -4,7 +4,7 @@ import { decryptAPIResponse } from "../../utils";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import blogsimg from "../../assets/images/Blogs/tablet-which-you-can-read-blog.jpg";
+import blogsimg from "../../assets/images/Blogs/Blog3[1].jpg";
 
 interface BlogArray {
   blogTitle: string;

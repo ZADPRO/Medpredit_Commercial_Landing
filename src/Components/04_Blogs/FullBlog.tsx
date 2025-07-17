@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import blogsimg from "../../assets/images/Blogs/tablet-which-you-can-read-blog.jpg";
+import blogsimg from "../../assets/images/Blogs/Blog3[1].jpg";
 
 const FullBlog: React.FC = () => {
   const location = useLocation();

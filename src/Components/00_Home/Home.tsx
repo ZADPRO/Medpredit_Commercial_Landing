@@ -12,7 +12,7 @@ import axios from "axios";
 import { FcApproval } from "react-icons/fc";
 // import { FaStar, FaRegStar, FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import blogsimg from "../../assets/images/Blogs/tablet-which-you-can-read-blog.jpg";
+import blogsimg from "../../assets/images/Blogs/Blog3[1].jpg";
 
 import icon1 from "../../assets/images/service/icon1.svg";
 import icon2 from "../../assets/images/service/icon2.svg";
