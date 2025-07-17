@@ -4,6 +4,7 @@ import { decryptAPIResponse } from "../../utils";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import blogsimg from "../../assets/images/Blogs/tablet-which-you-can-read-blog.jpg";
 
 interface BlogArray {
   blogTitle: string;
@@ -123,7 +124,7 @@ const Blogs: React.FC = () => {
                   className="bg-[#fef6f2] p-4"
                 >
                   <img
-                    src={blog.signedImageUrl}
+                    src={blog.signedImageUrl || blogsimg}
                     alt={blog.blogTitle}
                     className="w-full h-48 object-cover rounded-md"
                   />

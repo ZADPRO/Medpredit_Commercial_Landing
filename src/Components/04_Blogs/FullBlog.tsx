@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import blogsimg from "../../assets/images/Blogs/tablet-which-you-can-read-blog.jpg";
 
 const FullBlog: React.FC = () => {
   const location = useLocation();
@@ -14,7 +15,7 @@ const FullBlog: React.FC = () => {
     <div className="bg-[#fff7f3] text-[#0F3B36] min-h-screen py-12 px-6 md:px-12">
       <div className="max-w-4xl mx-auto py-10 px-4">
         <img
-          src={blogDetails.signedImageUrl}
+          src={blogDetails.signedImageUrl || blogsimg}
           alt={blogDetails.blogTitle}
           className="w-full h-full object-cover rounded-md"
         />
