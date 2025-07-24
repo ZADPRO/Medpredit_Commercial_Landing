@@ -27,7 +27,7 @@ import icon5 from "../../assets/images/service/icon5.svg";
 
 import grpdr from "../../assets/images/grpdr1.jpg";
 
-import treatmentbg from "../../assets/images/treatment.svg";
+import treatmentbg from "../../assets/images/treatment1.jpg";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useState } from "react";
 import { Toast } from "primereact/toast";
