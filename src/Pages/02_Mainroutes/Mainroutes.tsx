@@ -44,6 +44,7 @@ function App() {
           <Route path="/newrelease" element={<NewRelease />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/fullblogs" element={<FullBlog />} />
+          {/* <Route path="/fullblogs/:id" element={<FullBlog />} /> */}
           <Route path="/version" element={<Version />} />
           <Route path="/reviews" element={<Reviews />} />
         </Routes>

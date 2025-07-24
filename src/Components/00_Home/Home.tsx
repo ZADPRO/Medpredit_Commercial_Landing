@@ -54,6 +54,16 @@ interface BlogArray {
 
 const Home: React.FC = () => {
   const toast = useRef<Toast>(null);
+
+  const BlogContent: BlogArray = {
+    blogTitle:
+      "Why a Mobile Health Assistant is the Future of Family Health Assessment",
+    blogContent: "",
+    blogImage: "",
+    refBlogId: "static-blog-001",
+    signedImageUrl: blogsimg, // Use imported image, not string "blogsimg"
+  };
+
   // const testimonials = [
   //   {
   //     name: "Nirmal",
@@ -138,7 +148,7 @@ const Home: React.FC = () => {
   };
 
   // const navigate = useNavigate();
-  const [blogs, setBlogs] = useState<BlogArray[]>([]);
+  const [blogs, _setBlogs] = useState<BlogArray[]>([BlogContent]);
   const [_userReviews, setUserReviews] = useState<any[]>([]);
   const [_achievement, setAchievement] = useState<any[]>([]);
   const [_version, setVersion] = useState<any[]>([]);
@@ -225,32 +235,33 @@ const Home: React.FC = () => {
   //   });
   // };
 
-  const fetchBlogs = () => {
-    axios
-      .get(import.meta.env.VITE_API_URL + "/WebsiteRoutes/listBlogs", {
-        headers: {
-          Authorization: localStorage.getItem("token"),
-          "Content-Type": "application/json",
-        },
-      })
-      .then((response) => {
-        const data = decryptAPIResponse(
-          response.data[1],
-          response.data[0],
-          import.meta.env.VITE_ENCRYPTION_KEY
-        );
-        console.log("data setBlogs------------>", data);
+  // const fetchBlogs = () => {
+  //   axios
+  //     .get(import.meta.env.VITE_API_URL + "/WebsiteRoutes/listBlogs", {
+  //       headers: {
+  //         Authorization: localStorage.getItem("token"),
+  //         "Content-Type": "application/json",
+  //       },
+  //     })
+  //     .then((response) => {
+  //       const data = decryptAPIResponse(
+  //         response.data[1],
+  //         response.data[0],
+  //         import.meta.env.VITE_ENCRYPTION_KEY
+  //       );
+  //       console.log("data setBlogs------------>", data);
 
-        if (data.status === true) {
-          localStorage.setItem("token", "Bearer " + data.token);
-          console.log("setBlogs  --------->", data);
-          setBlogs(data.blogsForUser);
-        }
-      })
-      .catch((e) => {
-        console.log("Error fetching Blogs:", e);
-      });
-  };
+  //       if (data.status === true) {
+  //         localStorage.setItem("token", "Bearer " + data.token);
+  //         console.log("setBlogs  --------->", data);
+  //         // setBlogs(data.blogsForUser);
+  //         setBlogs([BlogContent, ...data.forUserAllBlogs]);
+  //       }
+  //     })
+  //     .catch((e) => {
+  //       console.log("Error fetching Blogs:", e);
+  //     });
+  // };
 
   const fetchAchievements = () => {
     axios
@@ -331,7 +342,7 @@ const Home: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchBlogs();
+    // fetchBlogs();
     fetchUserReview();
     fetchAchievements();
     fetchVersion();
@@ -1063,7 +1074,13 @@ const Home: React.FC = () => {
             </h2>
 
             {/* Grid Layout with Scroll Animation */}
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div
+              className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-10"
+              onClick={() => {
+                navigate("/blogs");
+                window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ Smooth scroll
+              }}
+            >
               {Array.isArray(blogs) &&
                 blogs.map((blog, index) => (
                   <motion.div

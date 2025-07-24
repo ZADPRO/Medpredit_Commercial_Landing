@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { decryptAPIResponse } from "../../utils";
-import axios from "axios";
+// import { decryptAPIResponse } from "../../utils";
+// import axios from "axios";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import blogsimg from "../../assets/images/Blogs/Blog3[1].jpg";
@@ -15,7 +15,15 @@ interface BlogArray {
 }
 
 const Blogs: React.FC = () => {
-  const [blogs, setBlogs] = useState<BlogArray[]>([]);
+  const BlogContent: BlogArray = {
+    blogTitle:
+      "Why a Mobile Health Assistant is the Future of Family Health Assessment",
+    blogContent: "",
+    blogImage: "",
+    blogId: "static-blog-001",
+    signedImageUrl: blogsimg, // Use imported image, not string "blogsimg"
+  };
+  const [blogs, _setBlogs] = useState<BlogArray[]>([BlogContent]);
   const navigate = useNavigate();
 
   const fadeUpVariants = {
@@ -28,74 +36,76 @@ const Blogs: React.FC = () => {
   //   visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } },
   // };
 
-  const fetchBlogs = () => {
-    axios
-      .get(import.meta.env.VITE_API_URL + "/WebsiteRoutes/listBlogs", {
-        headers: {
-          Authorization: localStorage.getItem("token"),
-          "Content-Type": "application/json",
-        },
-      })
-      .then((response) => {
-        const data = decryptAPIResponse(
-          response.data[1],
-          response.data[0],
-          import.meta.env.VITE_ENCRYPTION_KEY
-        );
-        console.log("data setBlogs------------>", data);
+  // const fetchBlogs = () => {
+  //   axios
+  //     .get(import.meta.env.VITE_API_URL + "/WebsiteRoutes/listBlogs", {
+  //       headers: {
+  //         Authorization: localStorage.getItem("token"),
+  //         "Content-Type": "application/json",
+  //       },
+  //     })
+  //     .then((response) => {
+  //       const data = decryptAPIResponse(
+  //         response.data[1],
+  //         response.data[0],
+  //         import.meta.env.VITE_ENCRYPTION_KEY
+  //       );
+  //       console.log("data setBlogs------------>", data);
 
-        if (data.status === true) {
-          localStorage.setItem("token", "Bearer " + data.token);
-          console.log("setBlogs  --------->", data);
-          setBlogs(data.forUserAllBlogs);
-        }
-      })
-      .catch((e: any) => {
-        console.log("Error fetching Blogs:", e);
-      });
-  };
+  //       if (data.status === true) {
+  //         localStorage.setItem("token", "Bearer " + data.token);
+  //         console.log("setBlogs  --------->", data);
+  //         setBlogs(data.forUserAllBlogs);
+  //       }
+  //     })
+  //     .catch((e: any) => {
+  //       console.log("Error fetching Blogs:", e);
+  //     });
+  // };
 
   useEffect(() => {
-    fetchBlogs();
+    // fetchBlogs();
   }, []);
 
-  const ReadMore = async (id: string) => {
-    console.log("id-------------->", id);
-    try {
-      const response = await axios.post(
-        import.meta.env.VITE_API_URL + "/WebsiteRoutes/getBlogs",
-        { blogId: id },
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-            "Content-Type": "application/json",
-          },
-        }
-      );
+  // const ReadMore = async (id: string) => {
+  //   console.log("id-------------->", id);
+  //   try {
+  //     const response = await axios.post(
+  //       import.meta.env.VITE_API_URL + "/WebsiteRoutes/getBlogs",
+  //       { blogId: id },
+  //       {
+  //         headers: {
+  //           Authorization: localStorage.getItem("token"),
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
 
-      const data = decryptAPIResponse(
-        response.data[1],
-        response.data[0],
-        import.meta.env.VITE_ENCRYPTION_KEY
-      );
+  //     const data = decryptAPIResponse(
+  //       response.data[1],
+  //       response.data[0],
+  //       import.meta.env.VITE_ENCRYPTION_KEY
+  //     );
 
-      console.log("before details ----->", data);
+  //     console.log("before details ----->", data);
 
-      if (data.status === true && Array.isArray(data.result)) {
-        localStorage.setItem("token", "Bearer " + data.token);
+  //     if (data.status === true && Array.isArray(data.result)) {
+  //       localStorage.setItem("token", "Bearer " + data.token);
 
-        const fullBlog = data.result[0]; // ✅ extract first blog from array
-        console.log("full details ----->", fullBlog);
+  //       const fullBlog = data.result[0]; // ✅ extract first blog from array
+  //       console.log("full details ----->", fullBlog);
 
-        // ✅ Navigate to fullblogs with blog data
-        navigate("/fullblogs", { state: { blogDetails: fullBlog } });
-      } else {
-        console.error("API update failed or unexpected format:", data);
-      }
-    } catch (e) {
-      console.error("Error updating package:", e);
-    }
-  };
+  //       // ✅ Navigate to fullblogs with blog data
+  //       // navigate("/fullblogs", { state: { blogDetails: fullBlog } });
+
+  //       navigate(`/fullblogs/${id}`);
+  //     } else {
+  //       console.error("API update failed or unexpected format:", data);
+  //     }
+  //   } catch (e) {
+  //     console.error("Error updating package:", e);
+  //   }
+  // };
 
   return (
     <div
@@ -134,7 +144,11 @@ const Blogs: React.FC = () => {
                   <div className="flex justify-end">
                     {" "}
                     <button
-                      onClick={() => ReadMore(blog.blogId)}
+                      // onClick={() => ReadMore(blog.blogId)}
+                      onClick={() => {
+                        navigate("/fullblogs");
+                        window.scrollTo({ top: 0, behavior: "smooth" }); // ✅ Smooth scroll
+                      }}
                       className="mt-6 rounded-4xl border-2 border-[#f89c7c] text-[#f89c7c] px-6 py-2 shadow-lg active:bg-[#07332f] hover:bg-[#07332f] transition"
                     >
                       Read More
