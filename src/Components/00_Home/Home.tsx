@@ -572,7 +572,8 @@ const Home: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              // transition={{ duration: 1, ease: "easeOut" }}
+              // transition={{ duration: 0, delay: 0 }}
               viewport={{ once: true, amount: 0.2 }} // Works when scrolling down and up
               className="w-full lg:w-1/2 text-center lg:text-left"
             >
@@ -610,7 +611,8 @@ const Home: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+              // transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+              transition={{ duration: 1, delay: 0.1 }}
               viewport={{ once: true, amount: 0.2 }} // Works when scrolling down and up
               style={{ backgroundImage: `url(${dot})` }}
               className="w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-10 lg:mt-0 relative bg-no-repeat bg-contain bg-right"
