@@ -1,10 +1,10 @@
 import React, {  useState } from "react";
 // import { useParams } from "react-router-dom";
 import blogsimg from "../../assets/images/Blogs/Blog3[1].jpg";
-import image1 from "../../assets/images/Blogs/image1.png";
-import image2 from "../../assets/images/Blogs/image2.png";
+import image1 from "../../assets/images/Blogs/Blog4[2].jpg";
+import image2 from "../../assets/images/Blogs/Blog2[2].jpg";
 // import image3 from "../../assets/images/Blogs/image3.png";
-import image4 from "../../assets/images/Blogs/image4.png";
+import image4 from "../../assets/images/Blogs/Blog1[4].jpg";
 
 // import axios from "axios";
 // import { decryptAPIResponse } from "../../utils";

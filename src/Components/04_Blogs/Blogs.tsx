@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 // import { decryptAPIResponse } from "../../utils";
 // import axios from "axios";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import blogsimg from "../../assets/images/Blogs/Blog3[1].jpg";
 
@@ -26,10 +26,10 @@ const Blogs: React.FC = () => {
   const [blogs, _setBlogs] = useState<BlogArray[]>([BlogContent]);
   const navigate = useNavigate();
 
-  const fadeUpVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
-  };
+  // const fadeUpVariants = {
+  //   hidden: { opacity: 0, y: 50 },
+  //   visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+  // };
 
   // const slideInVariants = {
   //   hidden: { opacity: 0, x: -100 },
@@ -125,12 +125,12 @@ const Blogs: React.FC = () => {
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-10">
             {Array.isArray(blogs) &&
               blogs.map((blog, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
-                  variants={fadeUpVariants}
+                  // initial="hidden"
+                  // whileInView="visible"
+                  // viewport={{ once: true, amount: 0.3 }}
+                  // variants={fadeUpVariants}
                   className="bg-[#fef6f2] p-4"
                 >
                   <img
@@ -154,7 +154,7 @@ const Blogs: React.FC = () => {
                       Read More
                     </button>
                   </div>
-                </motion.div>
+                </div>
               ))}
           </div>
         </div>

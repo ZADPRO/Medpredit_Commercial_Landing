@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { decryptAPIResponse } from "../../utils";
 import axios from "axios";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 // import { useNavigate } from "react-router-dom";
 
 // interface BlogArray {
@@ -17,10 +17,10 @@ const Reviews: React.FC = () => {
   const [userReviews, setUserReviews] = useState<any[]>([]);
   // const navigate = useNavigate();
 
-  const fadeUpVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
-  };
+  // const fadeUpVariants = {
+  //   hidden: { opacity: 0, y: 50 },
+  //   visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+  // };
 
   // const slideInVariants = {
   //   hidden: { opacity: 0, x: -100 },
@@ -110,12 +110,12 @@ const Reviews: React.FC = () => {
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-10">
             {Array.isArray(userReviews) &&
               userReviews.map((review, index) => (
-                <motion.div
+                <div
                   key={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.3 }}
-                  variants={fadeUpVariants}
+                  // initial="hidden"
+                  // whileInView="visible"
+                  // viewport={{ once: true, amount: 0.3 }}
+                  // variants={fadeUpVariants}
                   className="bg-white rounded-xl shadow-md p-6 border border-[#fcd5ce]"
                 >
                   <div className="flex items-center gap-3 mb-2">
@@ -153,7 +153,7 @@ const Reviews: React.FC = () => {
                       day: "numeric",
                     })}
                   </p>
-                </motion.div>
+                </div>
               ))}
           </div>
         </div>

@@ -25,15 +25,15 @@ import icon5 from "../../assets/images/service/icon5.svg";
 // import profile3 from "../../assets/images/Patient/patient3.png";
 // import profile4 from "../../assets/images/Patient/patient4.png";
 
-import grpdr from "../../assets/images/grpdr.png";
+import grpdr from "../../assets/images/grpdr1.jpg";
 
-import treatmentbg from "../../assets/images/treatmentbg.jpg";
+import treatmentbg from "../../assets/images/treatment.svg";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useState } from "react";
 import { Toast } from "primereact/toast";
 
 import formimg from "../../assets/images/form.png";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 // import CountUp from "react-countup";
 import "./Home.css";
 // import { useSwipeable } from "react-swipeable";
@@ -369,15 +369,15 @@ const Home: React.FC = () => {
       }
     };
   }, []);
-  const fadeUpVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
-  };
+  // const fadeUpVariants = {
+  //   hidden: { opacity: 0, y: 50 },
+  //   visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+  // };
 
-  const slideInVariants = {
-    hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } },
-  };
+  // const slideInVariants = {
+  //   hidden: { opacity: 0, x: -100 },
+  //   visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } },
+  // };
 
   const faqs = [
     {
@@ -569,12 +569,12 @@ const Home: React.FC = () => {
         >
           <div className="mt-0 flex flex-col lg:flex-row items-center px-6 md:px-12">
             {/* Left Side - Text Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              // transition={{ duration: 1, ease: "easeOut" }}
-              // transition={{ duration: 0, delay: 0 }}
-              viewport={{ once: true, amount: 0.2 }} // Works when scrolling down and up
+            <div
+              // initial={{ opacity: 0, x: -50 }}
+              // whileInView={{ opacity: 1, x: 0 }}
+              // // transition={{ duration: 1, ease: "easeOut" }}
+              // // transition={{ duration: 0, delay: 0 }}
+              // viewport={{ once: true, amount: 0.2 }} // Works when scrolling down and up
               className="w-full lg:w-1/2 text-center lg:text-left"
             >
               <p className="text-sm text-white tracking-widest uppercase">
@@ -605,37 +605,37 @@ const Home: React.FC = () => {
                 Watch Video
               </button> */}
               </div>
-            </motion.div>
+            </div>
 
             {/* Right Side - Images */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              // transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-              transition={{ duration: 1, delay: 0.1 }}
-              viewport={{ once: true, amount: 0.2 }} // Works when scrolling down and up
+            <div
+              // initial={{ opacity: 0, x: -50 }}
+              // whileInView={{ opacity: 1, x: 0 }}
+              // // transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+              // transition={{ duration: 1, delay: 0.1 }}
+              // viewport={{ once: true, amount: 0.2 }} // Works when scrolling down and up
               style={{ backgroundImage: `url(${dot})` }}
               className="w-full lg:w-1/2 flex justify-center lg:justify-end items-center mt-10 lg:mt-0 relative bg-no-repeat bg-contain bg-right"
             >
-              <motion.img
+              <img
                 src={dr1}
                 alt="Doctor 1"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.4 }}
-                viewport={{ once: true, amount: 0.2 }} // Works when scrolling down and up
+                // initial={{ opacity: 0, x: -50 }}
+                // whileInView={{ opacity: 1, x: 0 }}
+                // transition={{ duration: 1, delay: 0.4 }}
+                // viewport={{ once: true, amount: 0.2 }} // Works when scrolling down and up
                 className="w-40 h-60 md:w-48 md:h-72 lg:w-50 lg:h-88 object-cover mx-5 lg:mx-10 mt-10 lg:mt-20 rounded-[40%] shadow-lg"
               />
-              <motion.img
+              <img
                 src={dr2}
                 alt="Doctor 2"
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
-                viewport={{ once: true, amount: 0.2 }} // Works when scrolling down and up
+                // initial={{ opacity: 0, x: -50 }}
+                // whileInView={{ opacity: 1, x: 0 }}
+                // transition={{ duration: 1, delay: 0.6 }}
+                // viewport={{ once: true, amount: 0.2 }} // Works when scrolling down and up
                 className="w-40 h-60 md:w-48 md:h-72 lg:w-50 lg:h-88 object-cover rounded-[40%] shadow-lg"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
 
@@ -651,11 +651,11 @@ const Home: React.FC = () => {
 
           <div className="flex flex-wrap md:flex-nowrap">
             {/* Contact Info Box */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.2 }} // ✅ Allows re-triggering on scroll
+            <div
+              // initial={{ opacity: 0, x: -50 }}
+              // whileInView={{ opacity: 1, x: 0 }}
+              // transition={{ duration: 0.8, ease: "easeOut" }}
+              // viewport={{ once: true, amount: 0.2 }} // ✅ Allows re-triggering on scroll
               className="bg-[#f89c7c] flex flex-col text-[#07332f] w-full md:w-1/3 lg:w-1/3 p-6 md:h-[250px] lg:h-[300px]"
             >
               <h3 className="text-2xl mt-5 md:mt-2 p-3 font-semibold">
@@ -664,14 +664,14 @@ const Home: React.FC = () => {
               <p className="text-2xl mt-2 p-3 text-[#07332f] font-semibold">
                 Package Applied for Primary user Only
               </p>
-            </motion.div>
+            </div>
 
             {/* Family Health Box */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.2 }} // ✅ Allows animation when scrolling up or down
+            <div
+              // initial={{ opacity: 0, x: -50 }}
+              // whileInView={{ opacity: 1, x: 0 }}
+              // transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              // viewport={{ once: true, amount: 0.2 }} // ✅ Allows animation when scrolling up or down
               className="bg-[#07332f] p-6 text-white w-full md:w-1/3 lg:w-1/3 md:h-[250px] lg:h-[300px]"
             >
               <h3 className="text-2xl mt-5 md:mt-2 p-3 font-semibold">
@@ -680,14 +680,14 @@ const Home: React.FC = () => {
               <p className="text-2xl mt-2 p-3 text-white font-semibold">
                 Package Applied for Primary user + 1 Family Members
               </p>
-            </motion.div>
+            </div>
 
             {/* 24 Hours Service Box */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.2 }} // ✅ Animation re-triggers when scrolling up or down
+            <div
+              // initial={{ opacity: 0, x: -50 }}
+              // whileInView={{ opacity: 1, x: 0 }}
+              // transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              // viewport={{ once: true, amount: 0.2 }} // ✅ Animation re-triggers when scrolling up or down
               className="bg-[#f89c7c] flex flex-col text-[#07332f] w-full md:w-1/3 lg:w-1/3 p-6 md:h-[250px] lg:h-[300px]"
             >
               <h3 className="text-2xl mt-5 md:mt-2 p-3 font-semibold">
@@ -696,12 +696,12 @@ const Home: React.FC = () => {
               <p className="text-2xl mt-2 p-3 text-[#07332f] font-semibold">
                 Package Applied for Primary user + 3 Family Members
               </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.2 }} // ✅ Animation re-triggers when scrolling up or down
+            </div>
+            <div
+              // initial={{ opacity: 0, x: -50 }}
+              // whileInView={{ opacity: 1, x: 0 }}
+              // transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+              // viewport={{ once: true, amount: 0.2 }} // ✅ Animation re-triggers when scrolling up or down
               className="bg-[#07332f] p-6 text-white w-full md:w-1/3 lg:w-1/3 md:h-[250px] lg:h-[300px] border-t md:border-l md:border-t-0 border-white"
             >
               <h3 className="text-2xl mt-5 md:mt-2 p-3 font-semibold">
@@ -710,16 +710,16 @@ const Home: React.FC = () => {
               <p className="text-2xl mt-2 p-3 text-white font-semibold">
                 Package Applied for Primary user + 5 Family Members
               </p>
-            </motion.div>
+            </div>
           </div>
 
           <div className="mt-20 flex flex-wrap lg:flex-row md:flex-col">
             {/* Left - Images Section */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ amount: 0.2 }}
+            <div
+              // initial={{ opacity: 0, x: -50 }}
+              // whileInView={{ opacity: 1, x: 0 }}
+              // transition={{ duration: 0.8, ease: "easeOut" }}
+              // viewport={{ amount: 0.2 }}
               className="lg:w-1/2 md:w-full flex flex-col items-center relative"
             >
               {/* Background Pattern */}
@@ -731,11 +731,11 @@ const Home: React.FC = () => {
               {/* Image Grid */}
               <div className="grid grid-cols-2 gap-4 relative z-10">
                 {/* Doctor 1 - Large Image */}
-                <motion.img
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                  viewport={{ amount: 0.2 }}
+                <img
+                  // initial={{ opacity: 0, x: -50 }}
+                  // whileInView={{ opacity: 1, x: 0 }}
+                  // transition={{ duration: 0.8, delay: 0.2 }}
+                  // viewport={{ amount: 0.2 }}
                   src={dr3}
                   alt="Doctor 3"
                   className="w-[250px] h-[300px] md:w-[200px] md:h-[300px] rounded-[40%] shadow-lg object-cover"
@@ -744,22 +744,22 @@ const Home: React.FC = () => {
                 {/* Right Column */}
                 <div className="flex flex-col gap-6">
                   {/* Doctor 2 */}
-                  <motion.img
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    viewport={{ amount: 0.2 }}
+                  <img
+                    // initial={{ opacity: 0, x: -50 }}
+                    // whileInView={{ opacity: 1, x: 0 }}
+                    // transition={{ duration: 0.8, delay: 0.4 }}
+                    // viewport={{ amount: 0.2 }}
                     src={dr4}
                     alt="Doctor 4"
                     className="w-[180px] h-[230px] md:w-[150px] md:h-[200px] rounded-[40%] shadow-lg object-cover"
                   />
 
                   {/* Watch Video Section */}
-                  <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    viewport={{ amount: 0.2 }}
+                  <div
+                    // initial={{ opacity: 0, x: -50 }}
+                    // whileInView={{ opacity: 1, x: 0 }}
+                    // transition={{ duration: 0.8, delay: 0.6 }}
+                    // viewport={{ amount: 0.2 }}
                     className="relative right-10 w-[200px] h-[120px] md:w-[160px] md:h-[100px] rounded-[40%] shadow-lg overflow-hidden"
                   >
                     <img
@@ -767,18 +767,18 @@ const Home: React.FC = () => {
                       alt="Doctor 5"
                       className="absolute  w-full h-full object-cover opacity-60"
                     />
-                  </motion.div>
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Right - Text Section */}
-            <motion.div
+            <div
               id="about"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              viewport={{ amount: 0.2 }}
+              // initial={{ opacity: 0, x: -50 }}
+              // whileInView={{ opacity: 1, x: 0 }}
+              // transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              // viewport={{ amount: 0.2 }}
               className="lg:w-1/2 md:w-full px-10"
             >
               <h5 className="text-xl md:text-2xl font-bold text-[#f89c7c]  tracking-widest uppercase">
@@ -814,16 +814,16 @@ const Home: React.FC = () => {
               {/* <button className="mt-6 rounded-4xl border-2 border-[#f89c7c] text-[#f89c7c] px-6 py-2 shadow-lg active:bg-[#07332f] hover:bg-[#07332f] transition">
               Read More
             </button> */}
-            </motion.div>
+            </div>
           </div>
           <section id="services" className="bg-[#FFF7F5] py-16 px-10">
             <div className="max-w-6xl mx-auto">
               {/* Section Heading */}
-              <motion.div
-                initial={{ opacity: 0, y: -50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+              <div
+                // initial={{ opacity: 0, y: -50 }}
+                // whileInView={{ opacity: 1, y: 0 }}
+                // viewport={{ once: true, amount: 0.3 }}
+                // transition={{ duration: 0.8, ease: "easeOut" }}
                 className="text-center mt-10"
               >
                 <h3 className="text-xl md:text-2xl font-bold text-[#f89c7c] uppercase tracking-widest">
@@ -833,20 +833,20 @@ const Home: React.FC = () => {
                   Simplify health tracking for your entire family with
                   MedPredit!
                 </h2>
-              </motion.div>
+              </div>
 
               {/* Service Cards */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
                 {services.map((service, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    initial={{
-                      opacity: 0,
-                      x: -50, // All animations from left side only
-                    }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    // initial={{
+                    // opacity: 0,
+                    // x: -50, // All animations from left side only
+                    // }}
+                    // whileInView={{ opacity: 1, x: 0 }}
+                    // viewport={{ once: true, amount: 0.3 }}
+                    // transition={{ duration: 0.8, ease: "easeOut" }}
                     className="relative overflow-hidden group border shadow-md cursor-pointer"
                   >
                     {/* Background Hover Effect */}
@@ -867,16 +867,16 @@ const Home: React.FC = () => {
                     </div>
 
                     {/* Button */}
-                    {/* <motion.a
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.2, delay: 0.1 }}
+                    {/* <a
+                    // initial={{ opacity: 0, y: 30 }}
+                    // whileInView={{ opacity: 1, y: 0 }}
+                    // viewport={{ once: true, amount: 0.3 }}
+                    // transition={{ duration: 0.2, delay: 0.1 }}
                     className="relative bg-[#F4A38A] text-white text-center py-3 font-semibold flex justify-center items-center gap-2 transition-all duration-300 z-10 group-hover:text-[#07332F]"
                   >
                     Read More <FaArrowRight />
-                  </motion.a> */}
-                  </motion.div>
+                  </a> */}
+                  </div>
                 ))}
               </div>
             </div>
@@ -886,11 +886,11 @@ const Home: React.FC = () => {
         <section className="bg-[#FFF7F3] py-16 px-6 md:px-10 lg:px-20">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-center">
             {/* Left Side - Image & Stats */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+            <div
+              // initial={{ opacity: 0, x: -50 }}
+              // whileInView={{ opacity: 1, x: 0 }}
+              // viewport={{ once: true, amount: 0.3 }}
+              // transition={{ duration: 0.8, ease: "easeOut" }}
               className="relative w-full md:w-[45%] lg:w-[40%]"
             >
               <img
@@ -900,11 +900,11 @@ const Home: React.FC = () => {
               />
 
               {/* Floating Stats */}
-              {/* <motion.div
+              {/* <div
               ref={sectionRef} // Attaching ref to track visibility
-              initial={{ opacity: 0, y: 30 }}
+              // initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              // transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
               className="absolute top-[80%] md:top-[90%] lg:top-[85%] right-0 flex gap-1"
             >
               <div className="bg-[#023E36] text-white p-6 md:p-8 lg:p-10 w-36 h-28 md:w-40 md:h-30 text-center">
@@ -929,15 +929,15 @@ const Home: React.FC = () => {
                 </p>
                 <p className="text-sm">World Office</p>
               </div>
-            </motion.div> */}
-            </motion.div>
+            </div> */}
+            </div>
 
             {/* Right Side - FAQ */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }} // Changed from x: 50 to x: -50
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+            <div
+              // initial={{ opacity: 0, x: -50 }} // Changed from x: 50 to x: -50
+              // whileInView={{ opacity: 1, x: 0 }}
+              // viewport={{ once: true, amount: 0.3 }}
+              // transition={{ duration: 0.8, ease: "easeOut" }}
               className="w-full md:w-[50%] lg:w-[55%]"
             >
               <p className="text-[#F4A38A] text-xl md:text-2xl font-bold uppercase tracking-wide ">
@@ -948,25 +948,25 @@ const Home: React.FC = () => {
               </h2>
 
               {/* FAQ Section */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              <div
+                // initial={{ opacity: 0, y: 30 }}
+                // whileInView={{ opacity: 1, y: 0 }}
+                // viewport={{ once: true, amount: 0.3 }}
+                // transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                 className="mt-8 space-y-4"
               >
                 {faqs.map((faq, index) => (
-                  <motion.div
+                  <div
                     key={index}
                     className="pb-3"
-                    initial={{ opacity: 0, x: -30 }} // Changed from y: 10 to x: -30
-                    whileInView={{ opacity: 1, x: 0 }} // Changed from y: 0 to x: 0
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{
-                      duration: 0.5,
-                      delay: index * 0.2,
-                      ease: "easeOut",
-                    }}
+                    // initial={{ opacity: 0, x: -30 }} // Changed from y: 10 to x: -30
+                    // whileInView={{ opacity: 1, x: 0 }} // Changed from y: 0 to x: 0
+                    // viewport={{ once: true, amount: 0.3 }}
+                    // transition={{
+                    // duration: 0.5,
+                    // delay: index * 0.2,
+                    // ease: "easeOut",
+                    // }}
                   >
                     <button
                       className="flex justify-between items-center w-full text-lg md:text-xl font-medium text-[#002E2C]"
@@ -984,10 +984,10 @@ const Home: React.FC = () => {
                     {index === openIndex && (
                       <p className="mt-2 text-gray-600">{faq.answer}</p>
                     )}
-                  </motion.div>
+                  </div>
                 ))}
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1085,12 +1085,12 @@ const Home: React.FC = () => {
             >
               {Array.isArray(blogs) &&
                 blogs.map((blog, index) => (
-                  <motion.div
+                  <div
                     key={index}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.3 }}
-                    variants={fadeUpVariants}
+                    // initial="hidden"
+                    // whileInView="visible"
+                    // viewport={{ once: true, amount: 0.3 }}
+                    // variants={fadeUpVariants}
                     className="bg-[#fef6f2] p-4"
                   >
                     <img
@@ -1102,7 +1102,7 @@ const Home: React.FC = () => {
                     <h3 className="text-xl font-bold mt-5 text-gray-900">
                       {blog.blogTitle}
                     </h3>
-                  </motion.div>
+                  </div>
                 ))}
             </div>
             {/* Button */}
@@ -1187,11 +1187,11 @@ const Home: React.FC = () => {
 
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
             {version.map((version, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                // initial="hidden"
+                // whileInView="visible"
+                // viewport={{ once: true, amount: 0.3 }}
                 variants={fadeUpVariants}
                 className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
               >
@@ -1249,7 +1249,7 @@ const Home: React.FC = () => {
                     View Details →
                   </button>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -1269,11 +1269,11 @@ const Home: React.FC = () => {
             Contact Form
           </h2>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={slideInVariants}
+          <div
+            // initial="hidden"
+            // whileInView="visible"
+            // viewport={{ once: true, amount: 0.3 }}
+            // variants={slideInVariants}
             className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#043d36] rounded-lg shadow-lg overflow-hidden"
           >
             {/* Left Side - Info & Illustration */}
@@ -1343,7 +1343,7 @@ const Home: React.FC = () => {
                 </form>
               </div>
             </form>
-          </motion.div>
+          </div>
         </section>
         <section
           id="contact"
@@ -1359,11 +1359,11 @@ const Home: React.FC = () => {
             Feedback Form
           </h2>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={slideInVariants}
+          <div
+            // initial="hidden"
+            // whileInView="visible"
+            // viewport={{ once: true, amount: 0.3 }}
+            // variants={slideInVariants}
             className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 bg-[#043d36] rounded-lg shadow-lg overflow-hidden"
           >
             <div className="flex flex-col justify-center items-center bg-[#f7a582] text-center w-[80%]">
@@ -1462,7 +1462,7 @@ const Home: React.FC = () => {
                 Send
               </button>
             </form>
-          </motion.div>
+          </div>
         </section>
       </div>
     </>
