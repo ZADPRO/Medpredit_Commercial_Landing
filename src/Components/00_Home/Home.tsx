@@ -1,4 +1,4 @@
-import React, { use, useEffect, useRef } from "react";
+import React, {  useEffect, useRef } from "react";
 import dr1 from "../../assets/images/dr1.png";
 import dr2 from "../../assets/images/dr2.png";
 import dot from "../../assets/images/dot.png";
@@ -10,7 +10,7 @@ import axios from "axios";
 import { FaUserAlt } from "react-icons/fa";
 // import img1 from "../../assets/images/img1.svg";
 import { FcApproval } from "react-icons/fc";
-import { FaStar, FaRegStar, FaArrowRight } from "react-icons/fa";
+import { FaStar, FaRegStar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 import icon1 from "../../assets/images/service/icon1.svg";
@@ -86,7 +86,7 @@ const Home: React.FC = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(1);
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [expandedIndex, _setExpandedIndex] = useState<number | null>(null);
 
   const [feedbackData, setFeedbackData] = useState({
     userName: "",
