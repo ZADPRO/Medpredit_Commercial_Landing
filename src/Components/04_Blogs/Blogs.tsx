@@ -59,7 +59,13 @@ const Blogs: React.FC = () => {
     fetchBlogs();
   }, []);
 
-  const ReadMore = async (id: string) => {
+  const slugify = (text: string) =>
+    text
+      .toLowerCase()
+      .replace(/\s+/g, "-")
+      .replace(/[^\w-]/g, "");
+
+  const ReadMore = async (id: string, title: string) => {
     console.log("id-------------->", id);
     try {
       const response = await axios.post(
@@ -84,12 +90,11 @@ const Blogs: React.FC = () => {
       if (data.status === true && Array.isArray(data.result)) {
         localStorage.setItem("token", "Bearer " + data.token);
 
-        const fullBlog = data.result[0]; // ✅ extract first blog from array
+        const fullBlog = data.result[0];
         console.log("full details ----->", fullBlog);
 
-        // ✅ Navigate to fullblogs with blog data
-        // navigate("/fullblogs", { state: { blogDetails: fullBlog } });
-        navigate(`/fullblogs/${id}`);
+        const slug = slugify(title);
+        navigate(`/fullblogs/${id}/${slug}`);
       } else {
         console.error("API update failed or unexpected format:", data);
       }
@@ -135,7 +140,7 @@ const Blogs: React.FC = () => {
                   <div className="flex justify-end">
                     {" "}
                     <button
-                      onClick={() => ReadMore(blog.blogId)}
+                      onClick={() => ReadMore(blog.blogId, blog.blogTitle)}
                       className="mt-6 rounded-4xl border-2 border-[#f89c7c] text-[#f89c7c] px-6 py-2 shadow-lg active:bg-[#07332f] hover:bg-[#07332f] transition"
                     >
                       Read More
