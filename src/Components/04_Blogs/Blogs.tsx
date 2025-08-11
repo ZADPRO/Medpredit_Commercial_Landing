@@ -88,7 +88,8 @@ const Blogs: React.FC = () => {
         console.log("full details ----->", fullBlog);
 
         // ✅ Navigate to fullblogs with blog data
-        navigate("/fullblogs", { state: { blogDetails: fullBlog } });
+        // navigate("/fullblogs", { state: { blogDetails: fullBlog } });
+        navigate(`/fullblogs/${id}`);
       } else {
         console.error("API update failed or unexpected format:", data);
       }
