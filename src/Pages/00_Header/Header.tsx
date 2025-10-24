@@ -20,8 +20,8 @@ export default function Header() {
       name: "Blogs",
       subItems: [
         { name: "General Blogs", id: "/home#pages" },
-        // { name: "Achievements", id: "/home#achievements" },
-        // { name: "Version Updates", id: "/home#versions" },
+        { name: "Achievements", id: "/home#achievements" },
+        { name: "Version Updates", id: "/home#versions" },
       ],
     },
     { name: "Contact Us", id: "/home#contact" },
