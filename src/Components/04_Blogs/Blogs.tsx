@@ -23,11 +23,6 @@ const Blogs: React.FC = () => {
     visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
   };
 
-  // const slideInVariants = {
-  //   hidden: { opacity: 0, x: -100 },
-  //   visible: { opacity: 1, x: 0, transition: { duration: 1, ease: "easeOut" } },
-  // };
-
   const fetchBlogs = () => {
     axios
       .get(import.meta.env.VITE_API_URL + "/WebsiteRoutes/listBlogs", {
@@ -59,48 +54,23 @@ const Blogs: React.FC = () => {
     fetchBlogs();
   }, []);
 
+  // Create SEO-friendly slug from title
   const slugify = (text: string) =>
     text
       .toLowerCase()
-      .replace(/\s+/g, "-")
-      .replace(/[^\w-]/g, "");
+      .trim()
+      .replace(/[^\w\s-]/g, '') // Remove special characters
+      .replace(/\s+/g, "-")      // Replace spaces with hyphens
+      .replace(/-+/g, "-");      // Replace multiple hyphens with single hyphen
 
-  const ReadMore = async (id: string, title: string) => {
-    console.log("id-------------->", id);
-    try {
-      const response = await axios.post(
-        import.meta.env.VITE_API_URL + "/WebsiteRoutes/getBlogs",
-        { blogId: id },
-        {
-          headers: {
-            Authorization: localStorage.getItem("token"),
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      const data = decryptAPIResponse(
-        response.data[1],
-        response.data[0],
-        import.meta.env.VITE_ENCRYPTION_KEY
-      );
-
-      console.log("before details ----->", data);
-
-      if (data.status === true && Array.isArray(data.result)) {
-        localStorage.setItem("token", "Bearer " + data.token);
-
-        const fullBlog = data.result[0];
-        console.log("full details ----->", fullBlog);
-
-        const slug = slugify(title);
-        navigate(`/fullblogs/${id}/${slug}`);
-      } else {
-        console.error("API update failed or unexpected format:", data);
-      }
-    } catch (e) {
-      console.error("Error updating package:", e);
-    }
+  const ReadMore = (id: string, title: string) => {
+    const slug = slugify(title);
+    
+    // Store blog ID in sessionStorage for retrieval by slug
+    sessionStorage.setItem(`blog-${slug}`, id);
+    
+    // Navigate to clean URL: /blogs/blog-title-here
+    navigate(`/blogs/${slug}`);
   };
 
   return (
@@ -138,7 +108,6 @@ const Blogs: React.FC = () => {
                     {blog.blogTitle}
                   </h3>
                   <div className="flex justify-end">
-                    {" "}
                     <button
                       onClick={() => ReadMore(blog.blogId, blog.blogTitle)}
                       className="mt-6 rounded-4xl border-2 border-[#f89c7c] text-[#f89c7c] px-6 py-2 shadow-lg active:bg-[#07332f] hover:bg-[#07332f] transition"

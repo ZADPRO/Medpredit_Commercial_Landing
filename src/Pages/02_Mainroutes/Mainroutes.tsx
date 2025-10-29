@@ -19,15 +19,11 @@ import FullBlog from "../../Components/04_Blogs/FullBlog";
 import Version from "../../Components/06-NewRelease/Version";
 import Reviews from "../../Components/07-Reviews/Reviews";
 
-// import Terms from "../03_Terms/Terms";
-// import Privacy from "../04_Privacy/Privacy";
-
 function App() {
   return (
     <div>
       <Router>
         <Header />
-        {/* <div className="mt-[10vh]"> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -39,17 +35,16 @@ function App() {
           <Route path="/admindashboard" element={<AdminPage />} />
           <Route path="/blogpage" element={<BlogPage />} />
           <Route path="/user-review" element={<UserReview />} />
-          {/* <Route path="/signup" element={<SignUp />} /> */}
           <Route path="/achievements" element={<Achievements />} />
           <Route path="/newrelease" element={<NewRelease />} />
+          
+          {/* Blog routes - changed from /fullblogs/:id/:slug to /blogs/:slug */}
           <Route path="/blogs" element={<Blogs />} />
-          {/* <Route path="/fullblogs" element={<FullBlog />} /> */}
-          <Route path="/fullblogs/:id/:slug" element={<FullBlog />} />
-
+          <Route path="/blogs/:slug" element={<FullBlog />} />
+          
           <Route path="/version" element={<Version />} />
           <Route path="/reviews" element={<Reviews />} />
         </Routes>
-        {/* </div> */}
         <Footer />
       </Router>
     </div>
