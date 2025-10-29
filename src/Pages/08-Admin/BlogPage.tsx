@@ -52,7 +52,7 @@ const BlogPage: React.FC = () => {
   
   // Reference to editor for direct Quill access
   const editorRef = useRef<any>(null);
-  const editEditorRef = useRef<any>(null);
+  // const editEditorRef = useRef<any>(null);
 
   // Edit sidebar states
   const [editSidebarVisible, setEditSidebarVisible] = useState(false);
@@ -546,15 +546,15 @@ const BlogPage: React.FC = () => {
     }
   };
 
-  const actionDeleteBlogs = (rowData: any) => {
-    return (
-      <Button
-        icon="pi pi-trash"
-        severity="danger"
-        onClick={() => deleteBlogs(rowData.blogId)}
-      />
-    );
-  };
+  // const actionDeleteBlogs = (rowData: any) => {
+  //   return (
+  //     <Button
+  //       icon="pi pi-trash"
+  //       severity="danger"
+  //       onClick={() => deleteBlogs(rowData.blogId)}
+  //     />
+  //   );
+  // };
 
   const deleteBlogs = async (id: any) => {
     try {
