@@ -423,6 +423,7 @@ const BlogPage: React.FC = () => {
       });
     }
   };
+console.log(editProfileImage);
 
   const updateBlog = async () => {
     if (isEditSubmitting) return;
