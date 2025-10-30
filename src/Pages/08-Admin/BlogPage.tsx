@@ -49,10 +49,8 @@ const BlogPage: React.FC = () => {
   const [profileImage, setProfileImage] = useState("");
   const [blogs, setBlogs] = useState<BlogArray[]>([]);
   const [file, setFile] = useState<File | null>(null);
-  
-  // Reference to editor for direct Quill access
+
   const editorRef = useRef<any>(null);
-  // const editEditorRef = useRef<any>(null);
 
   // Edit sidebar states
   const [editSidebarVisible, setEditSidebarVisible] = useState(false);
@@ -74,6 +72,8 @@ const BlogPage: React.FC = () => {
   const [editProfileImage, setEditProfileImage] = useState("");
   const [editFile, setEditFile] = useState<File | null>(null);
   const [isEditSubmitting, setIsEditSubmitting] = useState(false);
+  const fileUploadRef = useRef<any>(null);
+  const editFileUploadRef = useRef<any>(null);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -118,11 +118,10 @@ const BlogPage: React.FC = () => {
       isValid = false;
     }
 
-    // Strip HTML tags to check if content is empty
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = inputs.blogContent;
     const textContent = tempDiv.textContent || tempDiv.innerText || '';
-    
+
     if (!textContent.trim()) {
       newErrors.blogContent = "Blog content is required";
       isValid = false;
@@ -160,18 +159,15 @@ const BlogPage: React.FC = () => {
       isValid = false;
     }
 
-    // Strip HTML tags to check if content is empty
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = editInputs.blogContent;
     const textContent = tempDiv.textContent || tempDiv.innerText || '';
-    
+
     if (!textContent.trim()) {
       newErrors.blogContent = "Blog content is required";
       isValid = false;
     }
 
-    // Image is optional for edit - can keep existing image
-    
     setEditErrors(newErrors);
 
     if (!isValid) {
@@ -187,7 +183,7 @@ const BlogPage: React.FC = () => {
   };
 
   const uploadImage = async () => {
-    if (!file) return;
+    if (!file) return null;
 
     try {
       const response = await axios.post(
@@ -217,23 +213,33 @@ const BlogPage: React.FC = () => {
           },
         });
 
-        if (uploadImage.status) {
-          setProfileImage(data.fileName);
-          return data.fileName;
+        if (uploadImage.status === 200) {
+          const imagePath = data.fileName;
+          setProfileImage(imagePath);
+          console.log("Image uploaded successfully:", imagePath);
+          return imagePath;
         } else {
           throw new Error("Error in uploading the Image");
         }
       }
     } catch (error) {
-      console.log("error in uploading Image", error);
+      console.error("error in uploading Image", error);
+      toast.current?.show({
+        severity: "error",
+        summary: "Upload Error",
+        detail: "Failed to upload image",
+        life: 3000,
+      });
       throw error;
     }
   };
 
   const uploadEditImage = async () => {
-    if (!editFile) return;
+    if (!editFile) return null;
 
     try {
+      console.log("Starting edit image upload for:", editFile.name);
+
       const response = await axios.post(
         import.meta.env.VITE_API_URL + "/WebsiteRoutes/blogImage",
         {
@@ -254,6 +260,8 @@ const BlogPage: React.FC = () => {
 
       localStorage.setItem("token", "Bearer " + data.token);
 
+      console.log("=============>", data)
+
       if (data.status === true) {
         const uploadImage = await axios.put(data.uploadUrl, editFile, {
           headers: {
@@ -261,16 +269,24 @@ const BlogPage: React.FC = () => {
           },
         });
 
-        if (uploadImage.status) {
-          setEditProfileImage(data.fileName);
-          return data.fileName;
+        if (uploadImage.status === 200) {
+          const imagePath = data.fileName;
+          console.log("Edit image uploaded successfully:", imagePath);
+          return imagePath;
         } else {
           throw new Error("Error in uploading the Image");
         }
       }
+      return null;
     } catch (error) {
-      console.log("error in uploading Image", error);
-      throw error;
+      console.error("error in uploading edit Image", error);
+      toast.current?.show({
+        severity: "error",
+        summary: "Upload Error",
+        detail: "Failed to upload image",
+        life: 3000,
+      });
+      return null;
     }
   };
 
@@ -287,6 +303,17 @@ const BlogPage: React.FC = () => {
       let imagePath = profileImage;
       if (file && !profileImage) {
         imagePath = await uploadImage();
+      }
+
+      if (!imagePath) {
+        toast.current?.show({
+          severity: "error",
+          summary: "Error",
+          detail: "Image upload failed",
+          life: 3000,
+        });
+        setIsSubmitting(false);
+        return;
       }
 
       const response = await axios.post(
@@ -309,6 +336,7 @@ const BlogPage: React.FC = () => {
         response.data[0],
         import.meta.env.VITE_ENCRYPTION_KEY
       );
+      console.log("--------------blog data---------------------------data")
 
       if (data.status === true) {
         toast.current?.show({
@@ -326,6 +354,9 @@ const BlogPage: React.FC = () => {
         });
         setProfileImage("");
         setFile(null);
+        if (fileUploadRef.current) {
+          fileUploadRef.current.clear();
+        }
         setErrors({
           blogTitle: "",
           blogContent: "",
@@ -333,7 +364,7 @@ const BlogPage: React.FC = () => {
         });
       }
     } catch (e) {
-      console.log("Error adding blog:", e);
+      console.error("Error adding blog:", e);
       toast.current?.show({
         severity: "error",
         summary: "Error",
@@ -347,26 +378,33 @@ const BlogPage: React.FC = () => {
 
   const fetchBlogDetails = async (blogId: number) => {
     try {
-      // Find the blog from the existing blogs array
       const blogDetails = blogs.find((blog) => blog.blogId === blogId);
-      
+
+      console.log("Fetching blog details for ID:", blogId);
+      console.log("Blog found:", blogDetails);
+
       if (blogDetails) {
         setEditInputs({
           blogTitle: blogDetails.blogTitle || "",
           blogContent: blogDetails.blogContent || "",
           blogImage: blogDetails.blogImage || "",
         });
-        setEditProfileImage(blogDetails.blogImage || "");
-        
-        // Clear any previous errors
+
+        // FIXED: Set the full image URL
+        const imagePath = blogDetails.blogImage || "";
+        setEditProfileImage(imagePath);
+        console.log("Setting edit profile image to:", imagePath);
+
         setEditErrors({
           blogTitle: "",
           blogContent: "",
           blogImage: "",
         });
-        
-        // Clear previous file selection
+
         setEditFile(null);
+        if (editFileUploadRef.current) {
+          editFileUploadRef.current.clear();
+        }
       } else {
         toast.current?.show({
           severity: "error",
@@ -376,7 +414,7 @@ const BlogPage: React.FC = () => {
         });
       }
     } catch (error) {
-      console.log("Error fetching blog details:", error);
+      console.error("Error fetching blog details:", error);
       toast.current?.show({
         severity: "error",
         summary: "Error",
@@ -396,18 +434,41 @@ const BlogPage: React.FC = () => {
     setIsEditSubmitting(true);
 
     try {
-      // Use existing image if no new file uploaded
-      let imagePath = editProfileImage;
+      // FIXED: Use existing image from editInputs.blogImage, not editProfileImage
+      let imagePath = editInputs.blogImage;
+
+      console.log("Current edit blog image:", editInputs.blogImage);
+      console.log("Edit file present:", !!editFile);
+
+      // Only upload new image if a file was selected
       if (editFile) {
-        imagePath = await uploadEditImage();
+        console.log("Uploading new image...");
+        const uploadedImagePath = await uploadEditImage();
+
+        if (uploadedImagePath) {
+          console.log("New image uploaded successfully:", uploadedImagePath);
+          imagePath = uploadedImagePath;
+        } else {
+          toast.current?.show({
+            severity: "error",
+            summary: "Upload Failed",
+            detail: "Failed to upload new image",
+            life: 3000,
+          });
+          setIsEditSubmitting(false);
+          return;
+        }
       }
+
+      console.log("Updating blog with image path:", imagePath);
+      console.log("Blog ID:", editBlogId);
 
       const response = await axios.post(
         import.meta.env.VITE_API_URL + "/WebsiteRoutes/updateBlog",
         {
           blogTitle: editInputs.blogTitle,
           blogContent: editInputs.blogContent,
-          filePath: imagePath,
+          imagePath: imagePath,
           blogId: editBlogId,
         },
         {
@@ -424,6 +485,8 @@ const BlogPage: React.FC = () => {
         import.meta.env.VITE_ENCRYPTION_KEY
       );
 
+      console.log("Update response:", data);
+
       if (data.status === true) {
         toast.current?.show({
           severity: "success",
@@ -431,10 +494,12 @@ const BlogPage: React.FC = () => {
           detail: "Blog updated successfully!",
           life: 3000,
         });
-        fetchBlogs();
+
+        await fetchBlogs();
+
         setEditSidebarVisible(false);
-        
-        // Reset edit states
+
+        // Reset edit form
         setEditInputs({
           blogTitle: "",
           blogContent: "",
@@ -442,15 +507,25 @@ const BlogPage: React.FC = () => {
         });
         setEditProfileImage("");
         setEditFile(null);
+        if (editFileUploadRef.current) {
+          editFileUploadRef.current.clear();
+        }
         setEditBlogId(null);
         setEditErrors({
           blogTitle: "",
           blogContent: "",
           blogImage: "",
         });
+      } else {
+        toast.current?.show({
+          severity: "error",
+          summary: "Error",
+          detail: data.message || "Failed to update blog",
+          life: 3000,
+        });
       }
     } catch (e) {
-      console.log("Error updating blog:", e);
+      console.error("Error updating blog:", e);
       toast.current?.show({
         severity: "error",
         summary: "Error",
@@ -462,42 +537,51 @@ const BlogPage: React.FC = () => {
     }
   };
 
-  const fetchBlogs = () => {
-    axios
-      .get(import.meta.env.VITE_API_URL + "/WebsiteRoutes/listBlogs", {
-        headers: {
-          Authorization: localStorage.getItem("token"),
-          "Content-Type": "application/json",
-        },
-      })
-      .then((response) => {
-        const resData = response.data;
-
-        if (!resData || !resData[0] || !resData[1]) {
-          console.error("Invalid blog response:", resData);
-          toast.current?.show({
-            severity: "error",
-            summary: "Error",
-            detail: "Invalid response from server while fetching blogs.",
-            life: 3000,
-          });
-          return;
+  const fetchBlogs = async () => {
+    try {
+      const response = await axios.get(
+        import.meta.env.VITE_API_URL + "/WebsiteRoutes/listBlogs",
+        {
+          headers: {
+            Authorization: localStorage.getItem("token"),
+            "Content-Type": "application/json",
+          },
         }
+      );
 
-        const data = decrypt(
-          resData[1],
-          resData[0],
-          import.meta.env.VITE_ENCRYPTION_KEY
-        );
+      const resData = response.data;
 
-        if (data.status === true) {
-          localStorage.setItem("token", "Bearer " + data.token);
-          setBlogs(data.image);
-        }
-      })
-      .catch((e) => {
-        console.log("Error fetching Blogs:", e);
+      if (!resData || !resData[0] || !resData[1]) {
+        console.error("Invalid blog response:", resData);
+        toast.current?.show({
+          severity: "error",
+          summary: "Error",
+          detail: "Invalid response from server while fetching blogs.",
+          life: 3000,
+        });
+        return;
+      }
+
+      const data = decrypt(
+        resData[1],
+        resData[0],
+        import.meta.env.VITE_ENCRYPTION_KEY
+      );
+
+      if (data.status === true) {
+        localStorage.setItem("token", "Bearer " + data.token);
+        console.log("Fetched blogs:", data.image);
+        setBlogs(data.image || []);
+      }
+    } catch (e) {
+      console.error("Error fetching Blogs:", e);
+      toast.current?.show({
+        severity: "error",
+        summary: "Error",
+        detail: "Failed to fetch blogs",
+        life: 3000,
       });
+    }
   };
 
   useEffect(() => {
@@ -527,6 +611,7 @@ const BlogPage: React.FC = () => {
 
   const handleEditFileSelect = (event: any) => {
     const selectedFile = event.files[0];
+    console.log("Edit file selected:", selectedFile?.name);
     if (selectedFile) {
       setEditFile(selectedFile);
 
@@ -545,16 +630,6 @@ const BlogPage: React.FC = () => {
       });
     }
   };
-
-  // const actionDeleteBlogs = (rowData: any) => {
-  //   return (
-  //     <Button
-  //       icon="pi pi-trash"
-  //       severity="danger"
-  //       onClick={() => deleteBlogs(rowData.blogId)}
-  //     />
-  //   );
-  // };
 
   const deleteBlogs = async (id: any) => {
     try {
@@ -630,8 +705,7 @@ const BlogPage: React.FC = () => {
         <h1 className="text-2xl font-bold text-center mb-6">Blog Management</h1>
 
         <Toast ref={toast} />
-        
-        {/* Add global styles for blog content */}
+
         <style>{`
           .blog-content-preview h1 {
             font-size: 2em;
@@ -714,7 +788,6 @@ const BlogPage: React.FC = () => {
             margin: 1em 0;
           }
           
-          /* PrimeReact Editor custom styles */
           .p-editor-container .ql-editor {
             min-height: 300px;
           }
@@ -723,7 +796,7 @@ const BlogPage: React.FC = () => {
             border-bottom: 1px solid #dee2e6 !important;
           }
         `}</style>
-        
+
         <TabView activeIndex={0}>
           <TabPanel header="Add Blogs">
             <div className="w-full px-4">
@@ -742,9 +815,8 @@ const BlogPage: React.FC = () => {
                       value={inputs.blogTitle}
                       onChange={handleInput}
                       placeholder="Enter Title"
-                      className={`p-inputtext-sm w-full ${
-                        errors.blogTitle ? "p-invalid" : ""
-                      }`}
+                      className={`p-inputtext-sm w-full ${errors.blogTitle ? "p-invalid" : ""
+                        }`}
                       required
                     />
                     {errors.blogTitle && (
@@ -763,21 +835,9 @@ const BlogPage: React.FC = () => {
                       value={inputs.blogContent || ""}
                       onTextChange={(e: EditorTextChangeEvent) => {
                         const content = e.htmlValue || "";
-                        
-                        // Fix: Convert all <ol> to <ul> for bullet lists
-                        // This is a workaround for PrimeReact Editor bug
-                        let processedContent = content;
-                        
-                        // Check if user clicked bullet list but editor created <ol>
-                        if (content.includes('<ol>') && !content.includes('style="list-style-type: decimal"')) {
-                          processedContent = content
-                            .replace(/<ol>/g, '<ul>')
-                            .replace(/<\/ol>/g, '</ul>');
-                        }
-                        
-                        setInputs({ ...inputs, blogContent: processedContent });
+                        setInputs({ ...inputs, blogContent: content });
 
-                        if (errors.blogContent && processedContent.trim()) {
+                        if (errors.blogContent && content.trim()) {
                           setErrors((prevErrors) => ({
                             ...prevErrors,
                             blogContent: "",
@@ -787,36 +847,6 @@ const BlogPage: React.FC = () => {
                       style={{ height: "400px", width: "100%" }}
                       placeholder="Enter Blog Content"
                       className={errors.blogContent ? "p-invalid" : ""}
-                      headerTemplate={
-                        <span className="ql-formats">
-                          <select className="ql-header" defaultValue="0">
-                            <option value="1">Heading 1</option>
-                            <option value="2">Heading 2</option>
-                            <option value="3">Heading 3</option>
-                            <option value="4">Heading 4</option>
-                            <option value="5">Heading 5</option>
-                            <option value="6">Heading 6</option>
-                            <option value="0">Normal</option>
-                          </select>
-                          <button className="ql-bold" aria-label="Bold"></button>
-                          <button className="ql-italic" aria-label="Italic"></button>
-                          <button className="ql-underline" aria-label="Underline"></button>
-                          <button className="ql-strike" aria-label="Strike"></button>
-                          <button className="ql-list" value="ordered" aria-label="Ordered List" title="Numbered List (1, 2, 3)"></button>
-                          <button className="ql-list" value="bullet" aria-label="Bullet List" title="Bullet List (• • •)"></button>
-                          <select className="ql-align">
-                            <option defaultValue=""></option>
-                            <option value="center"></option>
-                            <option value="right"></option>
-                            <option value="justify"></option>
-                          </select>
-                          <button className="ql-link" aria-label="Link"></button>
-                          <button className="ql-image" aria-label="Image"></button>
-                          <select className="ql-color"></select>
-                          <select className="ql-background"></select>
-                          <button className="ql-clean" aria-label="Clean"></button>
-                        </span>
-                      }
                     />
                     {errors.blogContent && (
                       <small className="text-[#e02929]">
@@ -831,6 +861,7 @@ const BlogPage: React.FC = () => {
                     </label>
                     <h2 className="text-sm text-gray-600">Choose Blog Image</h2>
                     <FileUpload
+                      ref={fileUploadRef}
                       name="logo"
                       mode="basic"
                       auto={false}
@@ -896,7 +927,7 @@ const BlogPage: React.FC = () => {
                 field="blogContent"
                 header="Blog Content"
                 body={(blog) => (
-                  <div 
+                  <div
                     className="blog-content-preview"
                     dangerouslySetInnerHTML={{
                       __html: blog.blogContent,
@@ -944,7 +975,20 @@ const BlogPage: React.FC = () => {
         <Sidebar
           visible={editSidebarVisible}
           style={{ width: "60%" }}
-          onHide={() => setEditSidebarVisible(false)}
+          onHide={() => {
+            setEditSidebarVisible(false);
+            setEditInputs({
+              blogTitle: "",
+              blogContent: "",
+              blogImage: "",
+            });
+            setEditProfileImage("");
+            setEditFile(null);
+            if (editFileUploadRef.current) {
+              editFileUploadRef.current.clear();
+            }
+            setEditBlogId(null);
+          }}
           position="right"
         >
           <h2 className="text-xl font-bold mb-4">Edit Blog</h2>
@@ -964,9 +1008,8 @@ const BlogPage: React.FC = () => {
                     value={editInputs.blogTitle}
                     onChange={handleEditInput}
                     placeholder="Enter Title"
-                    className={`p-inputtext-sm w-full ${
-                      editErrors.blogTitle ? "p-invalid" : ""
-                    }`}
+                    className={`p-inputtext-sm w-full ${editErrors.blogTitle ? "p-invalid" : ""
+                      }`}
                     required
                   />
                   {editErrors.blogTitle && (
@@ -996,36 +1039,6 @@ const BlogPage: React.FC = () => {
                     style={{ height: "400px", width: "100%" }}
                     placeholder="Enter Blog Content"
                     className={editErrors.blogContent ? "p-invalid" : ""}
-                    headerTemplate={
-                      <span className="ql-formats">
-                        <select className="ql-header" defaultValue="0">
-                          <option value="1">Heading 1</option>
-                          <option value="2">Heading 2</option>
-                          <option value="3">Heading 3</option>
-                          <option value="4">Heading 4</option>
-                          <option value="5">Heading 5</option>
-                          <option value="6">Heading 6</option>
-                          <option value="0">Normal</option>
-                        </select>
-                        <button className="ql-bold" aria-label="Bold"></button>
-                        <button className="ql-italic" aria-label="Italic"></button>
-                        <button className="ql-underline" aria-label="Underline"></button>
-                        <button className="ql-strike" aria-label="Strike"></button>
-                        <button className="ql-list" value="ordered" aria-label="Ordered List"></button>
-                        <button className="ql-list" value="bullet" aria-label="Bullet List"></button>
-                        <select className="ql-align">
-                          <option defaultValue=""></option>
-                          <option value="center"></option>
-                          <option value="right"></option>
-                          <option value="justify"></option>
-                        </select>
-                        <button className="ql-link" aria-label="Link"></button>
-                        <button className="ql-image" aria-label="Image"></button>
-                        <select className="ql-color"></select>
-                        <select className="ql-background"></select>
-                        <button className="ql-clean" aria-label="Clean"></button>
-                      </span>
-                    }
                   />
                   {editErrors.blogContent && (
                     <small className="text-[#e02929]">
@@ -1038,23 +1051,28 @@ const BlogPage: React.FC = () => {
                   <label htmlFor="blogImage" className="font-semibold">
                     Blog Image
                   </label>
-                  
-                  {editProfileImage && (
+
+                  {editInputs.blogImage && (
                     <div className="mt-2 mb-3">
                       <p className="text-sm text-gray-600 mb-2">Current Image:</p>
-                      <img 
-                        src={editProfileImage} 
-                        alt="Current blog" 
+                      <img
+                        src={editInputs.blogImage}
+                        alt="Current blog"
                         className="max-w-xs h-auto rounded border border-gray-300"
                         style={{ maxHeight: '200px' }}
+                        onError={(e) => {
+                          console.error("Error loading image:", editInputs.blogImage);
+                          e.currentTarget.style.display = 'none';
+                        }}
                       />
                     </div>
                   )}
-                  
+
                   <h2 className="text-sm text-gray-600">
-                    {editProfileImage ? "Upload New Image (Optional)" : "No image uploaded yet"}
+                    {editInputs.blogImage ? "Upload New Image (Optional)" : "No image uploaded yet"}
                   </h2>
                   <FileUpload
+                    ref={editFileUploadRef}
                     name="logo"
                     mode="basic"
                     auto={false}
@@ -1063,7 +1081,7 @@ const BlogPage: React.FC = () => {
                     onSelect={handleEditFileSelect}
                     accept="image/*"
                     maxFileSize={10000000}
-                    chooseLabel={editProfileImage ? "Change Image" : "Choose Image"}
+                    chooseLabel={editInputs.blogImage ? "Change Image" : "Choose Image"}
                   />
                   {editFile && (
                     <div className="mt-2 p-2 bg-gray-50 rounded border">

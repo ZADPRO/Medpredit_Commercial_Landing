@@ -31,13 +31,14 @@ const Blogs: React.FC = () => {
           "Content-Type": "application/json",
         },
       })
+      
       .then((response) => {
         const data = decryptAPIResponse(
           response.data[1],
           response.data[0],
           import.meta.env.VITE_ENCRYPTION_KEY
         );
-        console.log("data setBlogs------------>", data);
+        console.log("data setBlogs------------> 40e", data.forUserAllBlogs.signedImageUrl);
 
         if (data.status === true) {
           localStorage.setItem("token", "Bearer " + data.token);
@@ -65,11 +66,10 @@ const Blogs: React.FC = () => {
 
   const ReadMore = (id: string, title: string) => {
     const slug = slugify(title);
-    
-    // Store blog ID in sessionStorage for retrieval by slug
+
+   
     sessionStorage.setItem(`blog-${slug}`, id);
-    
-    // Navigate to clean URL: /blogs/blog-title-here
+
     navigate(`/blogs/${slug}`);
   };
 
@@ -100,10 +100,15 @@ const Blogs: React.FC = () => {
                   className="bg-[#fef6f2] p-4"
                 >
                   <img
-                    src={blog.signedImageUrl || blogsimg}
+                    src={
+                      blog.signedImageUrl && blog.signedImageUrl.trim() !== ""
+                        ? `${blog.signedImageUrl}?t=${Date.now()}`
+                        : blogsimg
+                    }
                     alt={blog.blogTitle}
                     className="w-full h-48 object-cover rounded-md"
                   />
+
                   <h3 className="text-xl font-bold mt-5 text-gray-900">
                     {blog.blogTitle}
                   </h3>
