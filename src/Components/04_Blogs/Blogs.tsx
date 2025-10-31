@@ -102,7 +102,7 @@ const Blogs: React.FC = () => {
                   <img
                     src={
                       blog.signedImageUrl && blog.signedImageUrl.trim() !== ""
-                        ? `${blog.signedImageUrl}?t=${Date.now()}`
+                        ? `${blog.signedImageUrl}`
                         : blogsimg
                     }
                     alt={blog.blogTitle}
